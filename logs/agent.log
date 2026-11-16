@@ -1,0 +1,191 @@
+2026/11/16 19:20:22 INFO ARCANE_LISTEN bound to loopback; trusting loopback proxies for X-Forwarded headers listen=127.0.0.1 trustedProxies=127.0.0.0/8,::1/128
+[2mNov 16 19:20:22.724[0m [92mINF[0m Arcane is starting... [2mversion=[0mdev
+[2mNov 16 19:20:22.724[0m [92mINF[0m Set Go memory limit from cgroup [2mcgroupLimitBytes=[0m15706882048 [2mgoMemoryLimitBytes=[0m14136193836
+[2mNov 16 19:20:22.724[0m [92mINF[0m Arcane Identity Configuration [2mpuid=[0m1000 [2mpgid=[0m103
+[2mNov 16 19:20:22.725[0m [92mINF[0m Resolved database migration state [2mprovider=[0msqlite [2mcurrentVersion=[0m116 [2mrequiredVersion=[0m116
+[2mNov 16 19:20:22.725[0m [92mINF[0m Database schema is up to date [2mprovider=[0msqlite [2mmigrationVersion=[0m116
+[2mNov 16 19:20:22.725[0m [92mINF[0m Database initialized successfully
+[2mNov 16 19:20:22.728[0m [92mINF[0m Loaded environment settings [2mcount=[0m2
+[2mNov 16 19:20:22.730[0m [92mINF[0m Checking for orphaned volume helper containers from previous runs
+[2mNov 16 19:20:22.731[0m [92mINF[0m Orphaned volume helper cleanup completed [2mremovedCount=[0m0
+[2mNov 16 19:20:22.745[0m [92mINF[0m Enrolled agent with manager [2mmanagerUrl=[0mhttp://127.0.0.1:3552
+[2mNov 16 19:20:22.745[0m [92mINF[0m Agent mode detected with token, attempting auto-pairing [2mmanagerUrl=[0mhttp://127.0.0.1:3552
+[2mNov 16 19:20:22.746[0m [92mINF[0m Successfully paired agent with manager [2mmanagerUrl=[0mhttp://127.0.0.1:3552
+[2mNov 16 19:20:22.747[0m [93mWRN[0m failed to ensure default templates [2merror=[0m"get templates directory: create directory \"/app/data/templates\": mkdir /app: permission denied"
+[2mNov 16 19:20:22.747[0m [92mINF[0m Registered scheduled volume backup jobs [2mcount=[0m0
+[2mNov 16 19:20:22.797[0m [92mINF[0m Creating metadata table [2mtable=[0marcane_francis_metadata
+[2mNov 16 19:20:22.797[0m [92mINF[0m Performing migration [2mcomponent=[0mmigrations [2mlevel=[0m0
+[2mNov 16 19:20:22.797[0m [92mINF[0m Performing SQLite database migration [2mmigration=[0m01-schema.sql
+[2mNov 16 19:20:22.800[0m [92mINF[0m Performing migration [2mcomponent=[0mmigrations [2mlevel=[0m1
+[2mNov 16 19:20:22.800[0m [92mINF[0m Performing SQLite database migration [2mmigration=[0m02-join-tokens.sql
+[2mNov 16 19:20:22.800[0m [92mINF[0m Performing migration [2mcomponent=[0mmigrations [2mlevel=[0m2
+[2mNov 16 19:20:22.800[0m [92mINF[0m Performing SQLite database migration [2mmigration=[0m03-jobs.sql
+[2mNov 16 19:20:22.801[0m [92mINF[0m Performing migration [2mcomponent=[0mmigrations [2mlevel=[0m3
+[2mNov 16 19:20:22.801[0m [92mINF[0m Performing SQLite database migration [2mmigration=[0m04-cluster.sql
+[2mNov 16 19:20:22.801[0m [92mINF[0m Performing migration [2mcomponent=[0mmigrations [2mlevel=[0m4
+[2mNov 16 19:20:22.801[0m [92mINF[0m Performing SQLite database migration [2mmigration=[0m05-workflow-labels.sql
+[2mNov 16 19:20:22.802[0m [92mINF[0m Performing migration [2mcomponent=[0mmigrations [2mlevel=[0m5
+[2mNov 16 19:20:22.802[0m [92mINF[0m Performing SQLite database migration [2mmigration=[0m06-terminal-jobs.sql
+[2mNov 16 19:20:22.802[0m [92mINF[0m Performing migration [2mcomponent=[0mmigrations [2mlevel=[0m6
+[2mNov 16 19:20:22.802[0m [92mINF[0m Performing SQLite database migration [2mmigration=[0m07-host-session-draining.sql
+[2mNov 16 19:20:22.802[0m [92mINF[0m Performing migration [2mcomponent=[0mmigrations [2mlevel=[0m7
+[2mNov 16 19:20:22.802[0m [92mINF[0m Performing SQLite database migration [2mmigration=[0m08-management.sql
+[2mNov 16 19:20:22.812[0m [92mINF[0m Registered actor host [2mscope=[0mfrancis.arcane.internal [2mhostId=[0m01a1e5cd-a81a-7e19-a791-a0e8d0618a96 [2maddress=[0m127.0.0.1:3554
+[2mNov 16 19:20:22.812[0m [92mINF[0m Schedule expired data clean up [2mscope=[0mfrancis.arcane.internal [2minterval=[0m10m0s
+[2mNov 16 19:20:22.812[0m [92mINF[0m Peer WebTransport server started [2mscope=[0mfrancis.arcane.internal [2mbind=[0m127.0.0.1:3554
+[2mNov 16 19:20:22.813[0m [92mINF[0m Cron job registered [2mscope=[0mworkflow [2mworkflow=[0mimage-check [2mcronJob=[0mimage-check.purge [2mjobID=[0m01a1e5cd-a81d-780b-8206-a429f97d1b1f
+[2mNov 16 19:20:22.814[0m [92mINF[0m Cron job registered [2mscope=[0mworkflow [2mworkflow=[0mvulnerability-scan [2mcronJob=[0mvulnerability-scan.purge [2mjobID=[0m01a1e5cd-a81e-7591-9780-77fe8b39bb3b
+[2mNov 16 19:20:22.815[0m [92mINF[0m Cron job registered [2mscope=[0mworkflow [2mworkflow=[0mauto-patch [2mcronJob=[0mauto-patch.purge [2mjobID=[0m01a1e5cd-a81e-7f86-95d7-fc5046488bb4
+[2mNov 16 19:20:22.815[0m [92mINF[0m Starting scheduler [2mtimezone=[0mUTC [2mutcOffset=[0m+00:00
+[2mNov 16 19:20:22.815[0m [92mINF[0m Cron job registered [2mscope=[0mworkflow [2mworkflow=[0mvolume-backup [2mcronJob=[0mvolume-backup.purge [2mjobID=[0m01a1e5cd-a81f-7b55-8fea-e572fd0f2595
+[2mNov 16 19:20:22.816[0m [92mINF[0m Cron job registered [2mscope=[0mworkflow [2mworkflow=[0mvolume-backup-policy [2mcronJob=[0mvolume-backup-policy.purge [2mjobID=[0m01a1e5cd-a820-7b18-bf26-a28702e9a33e
+[2mNov 16 19:20:22.817[0m [92mINF[0m Cron job registered [2mscope=[0mworkflow [2mworkflow=[0mgitops-sync [2mcronJob=[0mgitops-sync.purge [2mjobID=[0m01a1e5cd-a821-7830-8f65-af2d09dd7f09
+[2mNov 16 19:20:22.818[0m [92mINF[0m Cron job registered [2mscope=[0mworkflow [2mworkflow=[0msystem-backup [2mcronJob=[0msystem-backup.purge [2mjobID=[0m01a1e5cd-a822-78e8-bc4e-8ebf7c6f49ae
+[2mNov 16 19:20:22.819[0m [92mINF[0m Cron job registered [2mscope=[0mworkflow [2mworkflow=[0msystem-backup-policy [2mcronJob=[0msystem-backup-policy.purge [2mjobID=[0m01a1e5cd-a823-7577-a117-34e1ce875515
+[2mNov 16 19:20:22.820[0m [92mINF[0m Cron job registered [2mscope=[0mworkflow [2mworkflow=[0msystem-volume-backup [2mcronJob=[0msystem-volume-backup.purge [2mjobID=[0m01a1e5cd-a824-72d9-9178-621a4492ef78
+[2mNov 16 19:20:22.821[0m [92mINF[0m Cron job registered [2mscope=[0mworkflow [2mworkflow=[0msystem-volume-backup-policy [2mcronJob=[0msystem-volume-backup-policy.purge [2mjobID=[0m01a1e5cd-a824-7e01-801e-215e00e6e12a
+[2mNov 16 19:20:22.821[0m [92mINF[0m Cron job registered [2mscope=[0mworkflow [2mworkflow=[0mupdate-all [2mcronJob=[0mupdate-all.purge [2mjobID=[0m01a1e5cd-a825-7c04-9779-519959fd24bb
+[2mNov 16 19:20:22.822[0m [92mINF[0m Cron job registered [2mscope=[0mworkflow [2mworkflow=[0mauto-update [2mcronJob=[0mauto-update.purge [2mjobID=[0m01a1e5cd-a826-784a-af7b-f4b3256ae79e
+[2mNov 16 19:20:22.823[0m [92mINF[0m Cron job registered [2mscope=[0mworkflow [2mworkflow=[0mcontainer-update [2mcronJob=[0mcontainer-update.purge [2mjobID=[0m01a1e5cd-a827-74db-966f-3ff8c1e5f87e
+[2mNov 16 19:20:22.825[0m [92mINF[0m Registered gitops auto-sync jobs on startup [2mcount=[0m0
+[2mNov 16 19:20:22.825[0m [92mINF[0m project image metadata backfill completed [2mprojects=[0m0 [2mduration=[0m156.621µs [2mattempt=[0m1
+[2mNov 16 19:20:22.837[0m [92mINF[0m Filesystem watcher job registered
+[2mNov 16 19:20:22.837[0m [92mINF[0m Restarting projects filesystem watcher
+[2mNov 16 19:20:22.837[0m [93mWRN[0m Projects filesystem watcher is monitoring directories recursively; very deep trees may require increasing fs.inotify.max_user_watches [2mpaths=[0m[/tmp/arcane-live/agent/projects] [2msysctl=[0mfs.inotify.max_user_watches
+[2mNov 16 19:20:22.837[0m [92mINF[0m Projects filesystem watcher started [2mpaths=[0m[/tmp/arcane-live/agent/projects]
+[2mNov 16 19:20:22.837[0m [92mINF[0m Restarting templates filesystem watcher
+[2mNov 16 19:20:22.837[0m [93mWRN[0m Filesystem watcher startup failed; retrying [2merror=[0m"create directory \"/app/data/templates\": mkdir /app: permission denied"
+[2mNov 16 19:20:22.838[0m [92mINF[0m sending analytics heartbeat [2mversion=[0munknown [2minstanceId=[0m2a133479-cfee-43d6-b718-383dd95c70f7 [2mserverType=[0magent [2mheartbeatUrl=[0mhttp://localhost:8080/heartbeat [2menv=[0mdevelopment
+[2mNov 16 19:20:22.844[0m [92mINF[0m Agent tunnel client started [2mmanagerUrl=[0mhttp://127.0.0.1:3552
+[2mNov 16 19:20:22.844[0m [92mINF[0m Starting agent session client [2msecurityMode=[0mdisabled [2mwebsocketUrl=[0mws://127.0.0.1:3552/api/tunnel/connect
+[2mNov 16 19:20:22.845[0m [92mINF[0m Agent tunnel connected to manager [2mtransport=[0mwebsocket [2mmanagerAddr=[0mws://127.0.0.1:3552/api/tunnel/connect [2menvironmentId=[0m726c2ee0-fb65-45dd-8e0d-e3efe6377cd5 [2msessionId=[0m64259ea4-cd5f-46b0-99c1-d35b6ae1d456
+[2mNov 16 19:20:22.848[0m [92mINF[0m Docker API versions detected [2mclientApiVersion=[0m1.52 [2mserverApiVersion=[0m1.52 [2meffectiveApiVersion=[0m1.52
+[2mNov 16 19:20:23.732[0m [91mERR[0m analytics heartbeat failed; retrying after the retry delay [2merror=[0m"failed to send request: Post \"http://localhost:8080/heartbeat\": dial tcp [::1]:8080: connect: connection refused" [2mretryDelay=[0m1h0m0s
+[2mNov 16 19:20:24.834[0m [92mINF[0m image scan run started
+[2mNov 16 19:20:25.192[0m [92mINF[0m No orphaned image update records found
+[2mNov 16 19:20:25.192[0m [92mINF[0m Image update check completed [2mtotalImages=[0m1 [2mfailedImages=[0m0 [2mfailedContainers=[0m0
+[2mNov 16 19:20:25.193[0m [92mINF[0m Workflow instance terminated [2mscope=[0mworkflow [2mworkflow=[0mimage-check [2minstanceID=[0mimage-check-913fc504-23d8-4396-8ff1-b50be2f8aa63-1 [2mstatus=[0mcompleted [2mcompensation=[0mnone [2mcause=[0m""
+[2mNov 16 19:20:25.243[0m [92mINF[0m image scan run completed [2mstatus=[0msucceeded [2mmessage=[0m"Image update check completed: 1 checked, 0 errors"
+[2mNov 16 19:20:27.839[0m [92mINF[0m Restarting projects filesystem watcher
+[2mNov 16 19:20:27.839[0m [93mWRN[0m Projects filesystem watcher is monitoring directories recursively; very deep trees may require increasing fs.inotify.max_user_watches [2mpaths=[0m[/tmp/arcane-live/agent/projects] [2msysctl=[0mfs.inotify.max_user_watches
+[2mNov 16 19:20:27.840[0m [92mINF[0m Projects filesystem watcher started [2mpaths=[0m[/tmp/arcane-live/agent/projects]
+[2mNov 16 19:20:27.841[0m [92mINF[0m Restarting templates filesystem watcher
+[2mNov 16 19:20:27.841[0m [93mWRN[0m Filesystem watcher startup failed; retrying [2merror=[0m"create directory \"/app/data/templates\": mkdir /app: permission denied"
+[2mNov 16 19:20:28.476[0m [92mINF[0m skipping analytics heartbeat; next one is not due yet [2mnextAttemptAt=[0m2026-11-16T20:20:23.732Z
+[2mNov 16 19:20:30.074[0m [93mWRN[0m X-Forwarded-For received from an untrusted peer; clients behind this proxy share one rate-limit bucket. Set ARCANE_TRUSTED_PROXIES to the proxy's address range. [2mpeer=[0myamux:remote
+[2mNov 16 19:20:30.075[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/agents/0/registries [2mduration=[0m557.772µs [2mstatus=[0m200 [2mid=[0mznbqCbDBbleQLTDLRePwOBkVafyoWdKL
+[2mNov 16 19:20:30.095[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/agents/0/system/health [2mduration=[0m513.313µs [2mstatus=[0m200 [2mid=[0mqpPOckAkkXIlyNmcBMiCMnVlQdkVSenG
+[2mNov 16 19:20:30.443[0m [92mINF[0m No orphaned image update records found
+[2mNov 16 19:20:30.443[0m [92mINF[0m Image update check completed [2mtotalImages=[0m1 [2mfailedImages=[0m0 [2mfailedContainers=[0m0
+[2mNov 16 19:20:30.444[0m [92mINF[0m Workflow instance terminated [2mscope=[0mworkflow [2mworkflow=[0mimage-check [2minstanceID=[0mimage-check-01a1e5cd-c49f-7969-b37e-a17c2c71d7fb [2mstatus=[0mcompleted [2mcompensation=[0mnone [2mcause=[0m""
+[2mNov 16 19:20:30.516[0m [92mINF[0m Incoming request [2mmethod=[0mPOST [2mpath=[0m/api/agents/0/images/updates/check [2mduration=[0m405.035409ms [2mstatus=[0m200 [2mid=[0mEeTXoXYoZzEuXjROFjvQJNKpxIfnQOTR
+[2mNov 16 19:20:30.544[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/agents/0/system/docker/info [2mduration=[0m10.240042ms [2mstatus=[0m200 [2mid=[0mLUOlqkTvQhVfWFzvpxDnVOywtQFftWQd
+[2mNov 16 19:20:30.583[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/agents/0/system/df [2mduration=[0m22.187641ms [2mstatus=[0m200 [2mid=[0mmbUXuSuutVHQZZBWPlYMXjqkiMWIGPZr
+[2mNov 16 19:20:30.599[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/agents/0/registries [2mduration=[0m135.455µs [2mstatus=[0m200 [2mid=[0mpwYVSiVHtSXuKimSsZdtQkyLMxBMFjjM
+[2mNov 16 19:20:30.616[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/agents/0/system/health [2mduration=[0m206.642µs [2mstatus=[0m200 [2mid=[0mMGoXwjZMOTIPRtAkFVBEklwOREaxOhbP
+[2mNov 16 19:20:30.952[0m [92mINF[0m No orphaned image update records found
+[2mNov 16 19:20:30.952[0m [92mINF[0m Image update check completed [2mtotalImages=[0m1 [2mfailedImages=[0m0 [2mfailedContainers=[0m0
+[2mNov 16 19:20:30.957[0m [92mINF[0m Workflow instance terminated [2mscope=[0mworkflow [2mworkflow=[0mimage-check [2minstanceID=[0mimage-check-01a1e5cd-c6a8-7162-b3a3-c67b06cd9ec9 [2mstatus=[0mcompleted [2mcompensation=[0mnone [2mcause=[0m""
+[2mNov 16 19:20:31.036[0m [92mINF[0m Incoming request [2mmethod=[0mPOST [2mpath=[0m/api/agents/0/images/updates/check [2mduration=[0m404.852841ms [2mstatus=[0m200 [2mid=[0mjHEHdKaucuYFcUcfJWborItAcHDDHHGY
+[2mNov 16 19:20:31.065[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/agents/0/system/docker/info [2mduration=[0m9.692461ms [2mstatus=[0m200 [2mid=[0mkFctwAmOvIFKeUVMiWbIibQzplaiAEsd
+[2mNov 16 19:20:31.105[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/agents/0/system/df [2mduration=[0m23.177581ms [2mstatus=[0m200 [2mid=[0mDeQshtcAxPyZvVIcEctCneswZtlLbXgc
+[2mNov 16 19:20:37.842[0m [92mINF[0m Restarting projects filesystem watcher
+[2mNov 16 19:20:37.843[0m [93mWRN[0m Projects filesystem watcher is monitoring directories recursively; very deep trees may require increasing fs.inotify.max_user_watches [2mpaths=[0m[/tmp/arcane-live/agent/projects] [2msysctl=[0mfs.inotify.max_user_watches
+[2mNov 16 19:20:37.843[0m [92mINF[0m Projects filesystem watcher started [2mpaths=[0m[/tmp/arcane-live/agent/projects]
+[2mNov 16 19:20:37.844[0m [92mINF[0m Restarting templates filesystem watcher
+[2mNov 16 19:20:37.844[0m [93mWRN[0m Filesystem watcher startup failed; retrying [2merror=[0m"create directory \"/app/data/templates\": mkdir /app: permission denied"
+[2mNov 16 19:20:57.846[0m [92mINF[0m Restarting projects filesystem watcher
+[2mNov 16 19:20:57.846[0m [93mWRN[0m Projects filesystem watcher is monitoring directories recursively; very deep trees may require increasing fs.inotify.max_user_watches [2mpaths=[0m[/tmp/arcane-live/agent/projects] [2msysctl=[0mfs.inotify.max_user_watches
+[2mNov 16 19:20:57.846[0m [92mINF[0m Projects filesystem watcher started [2mpaths=[0m[/tmp/arcane-live/agent/projects]
+[2mNov 16 19:20:57.847[0m [92mINF[0m Restarting templates filesystem watcher
+[2mNov 16 19:20:57.847[0m [93mWRN[0m Filesystem watcher startup failed; retrying [2merror=[0m"create directory \"/app/data/templates\": mkdir /app: permission denied"
+[2mNov 16 19:21:37.847[0m [92mINF[0m Restarting projects filesystem watcher
+[2mNov 16 19:21:37.848[0m [93mWRN[0m Projects filesystem watcher is monitoring directories recursively; very deep trees may require increasing fs.inotify.max_user_watches [2mpaths=[0m[/tmp/arcane-live/agent/projects] [2msysctl=[0mfs.inotify.max_user_watches
+[2mNov 16 19:21:37.848[0m [92mINF[0m Projects filesystem watcher started [2mpaths=[0m[/tmp/arcane-live/agent/projects]
+[2mNov 16 19:21:37.849[0m [92mINF[0m Restarting templates filesystem watcher
+[2mNov 16 19:21:37.849[0m [93mWRN[0m Filesystem watcher startup failed; retrying [2merror=[0m"create directory \"/app/data/templates\": mkdir /app: permission denied"
+[2mNov 16 19:21:53.208[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/agents/0/settings/public [2mduration=[0m382.152µs [2mstatus=[0m200 [2mid=[0mYcRcQTHgqJYYoqwdJgsVWePfjsoFJscZ
+[2mNov 16 19:21:53.237[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/agents/0/swarm/status [2mduration=[0m299.895µs [2mstatus=[0m200 [2mid=[0msAOBBDEZmuAChCdKKDAmYPnaYuiXEWSv
+[2mNov 16 19:21:53.252[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/agents/0/podman/status [2mduration=[0m14.012692ms [2mstatus=[0m200 [2mid=[0mUyIVsliEuRnmfNdjjwtuyhdVLEmVnSUB
+[2mNov 16 19:21:59.075[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/agents/0/images/counts [2mduration=[0m426.53µs [2mstatus=[0m200 [2mid=[0mXBWUxJrUJXagAttiyPxopESOpRjWUZIY
+[2mNov 16 19:21:59.076[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/agents/0/containers/counts [2mduration=[0m242.534µs [2mstatus=[0m200 [2mid=[0muURSIzlvXmWAZeEGDJIIEYQxQnwoFGuh
+[2mNov 16 19:21:59.079[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/agents/0/projects/counts [2mduration=[0m2.743371ms [2mstatus=[0m200 [2mid=[0mqENAcnkwiiXdsFMWwbCSPJxRLqlarVpQ
+[2mNov 16 19:21:59.080[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/agents/0/vulnerabilities/summary [2mduration=[0m1.58975ms [2mstatus=[0m200 [2mid=[0mktJTbNoxSKEpMKyRwdHaLmKQLeierSAK
+[2mNov 16 19:21:59.078[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/agents/0/podman/status [2mduration=[0m218.371µs [2mstatus=[0m200 [2mid=[0mFElUUuzFvuujURWNwHNsVYxugrOMmYWu
+[2mNov 16 19:21:59.080[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/agents/0/vulnerabilities/overview [2mduration=[0m1.005955ms [2mstatus=[0m200 [2mid=[0mhVBRrghDPjDgIccMduoioJQelsXanTPX
+[2mNov 16 19:21:59.089[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/agents/0/jobs [2mduration=[0m4.233132ms [2mstatus=[0m200 [2mid=[0mqoVUKEPuSiwAPOULrNRQrrPSiZyBjZYL
+[2mNov 16 19:21:59.090[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/agents/0/containers [2mduration=[0m1.864508ms [2mstatus=[0m200 [2mid=[0mpAUbucttFafqhRHeesRlYzcxEmBqGjBU
+[2mNov 16 19:21:59.124[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/agents/0/system/df [2mduration=[0m38.8798ms [2mstatus=[0m200 [2mid=[0mAJtnIrRReJbcOIDBqiVPUtDEOprjzYcX
+[2mNov 16 19:21:59.136[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/agents/0/activities [2mduration=[0m751.049µs [2mstatus=[0m200 [2mid=[0mtZbuUlQzsunWsCSbrZMIMmLEcjdWFtws
+[2mNov 16 19:21:59.161[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/agents/0/events/changes [2mduration=[0m2.062333ms [2mstatus=[0m200 [2mid=[0mkZqKKpInYDldBNeqwxGhDTwPRSnVwfDa
+[2mNov 16 19:21:59.162[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/agents/0/activities [2mduration=[0m575.593µs [2mstatus=[0m200 [2mid=[0msdQcckywIqJoAWjkaNTTJLhvJNsvVPEq
+[2mNov 16 19:21:59.163[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/agents/0/activities [2mduration=[0m177.035µs [2mstatus=[0m200 [2mid=[0mmvkhiTiyrokHDDWBfDChgXvOEalKUcHM
+[2mNov 16 19:21:59.236[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/app/version [2mduration=[0m159.717767ms [2mstatus=[0m200 [2mid=[0mineYqnuJJXoWdwpgTAtOVXtkOmqwsqXX
+[2mNov 16 19:21:59.236[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/app/version [2mduration=[0m155.446558ms [2mstatus=[0m200 [2mid=[0mnlivprpGkceybaLumuuRbEsEEEIhVCAN
+[2mNov 16 19:22:00.010[0m [92mINF[0m Incoming request [2mmethod=[0mHEAD [2mpath=[0m/api/agents/0/system/health [2mduration=[0m1.219449ms [2mstatus=[0m200 [2mid=[0mhavUMVNstEeggABbgIObZvyMtJPYhdIQ
+[2mNov 16 19:22:00.012[0m [92mINF[0m Incoming request [2mmethod=[0mPOST [2mpath=[0m/api/registries/sync [2mduration=[0m425.507µs [2mstatus=[0m200 [2mid=[0mpGyztTlsHrEEQAsJRRpeOBuafnoINjar
+[2mNov 16 19:22:00.013[0m [92mINF[0m Incoming request [2mmethod=[0mPOST [2mpath=[0m/api/backups/s3/sync [2mduration=[0m356.4µs [2mstatus=[0m200 [2mid=[0mXzAaIcqhJjeAlZSgjeGjddDpbsIKoIZg
+[2mNov 16 19:22:00.014[0m [92mINF[0m Incoming request [2mmethod=[0mPOST [2mpath=[0m/api/git/repositories/sync [2mduration=[0m250.394µs [2mstatus=[0m200 [2mid=[0mmctNUmDCLIbIqFeVcOXbsvHTePQCaTDS
+[2mNov 16 19:22:00.015[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/agents/0/templates/variables [2mduration=[0m196.899µs [2mstatus=[0m200 [2mid=[0mNptJcGuTgwNjjQYMfcpDYUKPGkylUlVl
+[2mNov 16 19:22:00.016[0m [92mINF[0m Incoming request [2mmethod=[0mPUT [2mpath=[0m/api/agents/0/templates/variables [2mduration=[0m103.488µs [2mstatus=[0m200 [2mid=[0mfwcXxVDOUxcaGYtVWXllnjFmMYNVPBDn
+[2mNov 16 19:22:00.418[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/agents/0/settings/public [2mduration=[0m282.246µs [2mstatus=[0m200 [2mid=[0mEfkhKbHKrGRRiBbmYObtHdqOaqNciEsM
+[2mNov 16 19:22:00.419[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/app/version [2mduration=[0m74.749µs [2mstatus=[0m200 [2mid=[0mrFnCHENsHVKalJpbCOxBFoETcTtqYhXX
+[2mNov 16 19:22:00.421[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/agents/0/containers/counts [2mduration=[0m94.368µs [2mstatus=[0m200 [2mid=[0mMOlNIVbjRIgPPfVivNhinQIwcqvGmlIg
+[2mNov 16 19:22:00.421[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/agents/0/projects/counts [2mduration=[0m254.745µs [2mstatus=[0m200 [2mid=[0mAZHnWgKKxUBgsRYptPxawWbAoROuiZuG
+[2mNov 16 19:22:00.421[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/agents/0/images/counts [2mduration=[0m68.565µs [2mstatus=[0m200 [2mid=[0maocYexmmLTNrQGCGAckRCnhJwISOVMgt
+[2mNov 16 19:22:00.423[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/agents/0/vulnerabilities/summary [2mduration=[0m253.874µs [2mstatus=[0m200 [2mid=[0mpVtlKiMbxBzZSSjAtTXvKVLvFbjBvBEv
+[2mNov 16 19:22:00.426[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/agents/0/podman/status [2mduration=[0m103.63µs [2mstatus=[0m200 [2mid=[0mJKMOAMyaWQyRnxMOfuToQoHJwlKGNTiB
+[2mNov 16 19:22:00.428[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/app/version [2mduration=[0m42.106µs [2mstatus=[0m200 [2mid=[0meqAmZgMdtBxdZZVbCkCFUafjFPlCClwR
+[2mNov 16 19:22:00.435[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/agents/0/jobs [2mduration=[0m3.08852ms [2mstatus=[0m200 [2mid=[0mSEZYJMDHnUcpSXgGTDeSDMpRYiGubYzI
+[2mNov 16 19:22:00.441[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/agents/0/vulnerabilities/overview [2mduration=[0m97.169µs [2mstatus=[0m200 [2mid=[0mOQlkTJrzjLWLLcPpZEZdVTVIgCfdMJwN
+[2mNov 16 19:22:00.443[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/agents/0/containers [2mduration=[0m11.20741ms [2mstatus=[0m200 [2mid=[0mndehMIuJenrpSAsCAqUtOoaxZGWvFtIx
+[2mNov 16 19:22:00.470[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/agents/0/system/df [2mduration=[0m37.384068ms [2mstatus=[0m200 [2mid=[0myJIIcOPRlLVLvFTVAlWskpasDQWtwyFJ
+[2mNov 16 19:22:00.501[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/agents/0/swarm/status [2mduration=[0m163.633µs [2mstatus=[0m200 [2mid=[0mgFHSAWmigbpDFtDaitAzjMsxAdFcvTWu
+[2mNov 16 19:22:00.502[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/agents/0/settings/public [2mduration=[0m141.067µs [2mstatus=[0m200 [2mid=[0mBlZUunShjDKqfjpFqSTSEEEGfygPXzFL
+[2mNov 16 19:22:00.504[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/agents/0/podman/status [2mduration=[0m196.215µs [2mstatus=[0m200 [2mid=[0mpibLdhHHiwrnFQKbzFtcUSCSGdQajVcA
+[2mNov 16 19:22:00.525[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/agents/0/events/changes [2mduration=[0m1.363899068s [2mstatus=[0m200 [2mid=[0moUfFfThFpKabIdNTeUZzAxKbcKdJLbEv
+[2mNov 16 19:22:00.527[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/agents/0/activities [2mduration=[0m294.561µs [2mstatus=[0m200 [2mid=[0mIsyxEvFAibQlOtfqozBCBOSnygkngmto
+[2mNov 16 19:22:48.938[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/agents/0/events/changes [2mduration=[0m48.410739936s [2mstatus=[0m200 [2mid=[0mwkJkwGHNbjRZMCNoRvtypSFjFRHyFumP
+[2mNov 16 19:22:57.850[0m [92mINF[0m Restarting projects filesystem watcher
+[2mNov 16 19:22:57.850[0m [93mWRN[0m Projects filesystem watcher is monitoring directories recursively; very deep trees may require increasing fs.inotify.max_user_watches [2mpaths=[0m[/tmp/arcane-live/agent/projects] [2msysctl=[0mfs.inotify.max_user_watches
+[2mNov 16 19:22:57.851[0m [92mINF[0m Projects filesystem watcher started [2mpaths=[0m[/tmp/arcane-live/agent/projects]
+[2mNov 16 19:22:57.851[0m [92mINF[0m Restarting templates filesystem watcher
+[2mNov 16 19:22:57.851[0m [93mWRN[0m Filesystem watcher startup failed; retrying [2merror=[0m"create directory \"/app/data/templates\": mkdir /app: permission denied"
+[2mNov 16 19:23:04.023[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/agents/0/settings/public [2mduration=[0m180.212µs [2mstatus=[0m200 [2mid=[0mjNOtFPlfWJrwwMySFEvesxFwKBrseTMK
+[2mNov 16 19:23:04.046[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/agents/0/podman/status [2mduration=[0m137.687µs [2mstatus=[0m200 [2mid=[0myeqgYPRmOTihBDuFzErCppphXhfclUXO
+[2mNov 16 19:23:04.046[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/agents/0/swarm/status [2mduration=[0m238.496µs [2mstatus=[0m200 [2mid=[0msgVoLNTPHXKQUjevTkRarOlFVzomSwDw
+[2mNov 16 19:23:06.642[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/agents/0/projects/counts [2mduration=[0m271.162µs [2mstatus=[0m200 [2mid=[0mzrIzMosdQzzzbEjHFUedVenzbuYfaZpy
+[2mNov 16 19:23:06.643[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/agents/0/containers/counts [2mduration=[0m157.04µs [2mstatus=[0m200 [2mid=[0mpUGZIZTzCTvojvQitiCQbyVlZYcKjoLv
+[2mNov 16 19:23:06.643[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/agents/0/vulnerabilities/summary [2mduration=[0m385.923µs [2mstatus=[0m200 [2mid=[0mbKzSZUmwMVHdZJeWvodnFKPhreFMPpFI
+[2mNov 16 19:23:06.644[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/app/version [2mduration=[0m2.055183ms [2mstatus=[0m200 [2mid=[0mRJCmYLAXKlRLnGzQmzvwAisJmqJXZbBE
+[2mNov 16 19:23:06.645[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/agents/0/images/counts [2mduration=[0m643.093µs [2mstatus=[0m200 [2mid=[0muJzVYzRlXDYWWTrgfeAxeyJxzgQTpfND
+[2mNov 16 19:23:06.646[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/agents/0/podman/status [2mduration=[0m205.999µs [2mstatus=[0m200 [2mid=[0mizyzSqATqHObQAYQwXxlIrPpysOxFbjf
+[2mNov 16 19:23:06.649[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/app/version [2mduration=[0m88.693µs [2mstatus=[0m200 [2mid=[0mJDUWKkMggtJAEkGGmfAqwpHTdiuubsby
+[2mNov 16 19:23:06.650[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/agents/0/vulnerabilities/overview [2mduration=[0m993.025µs [2mstatus=[0m200 [2mid=[0mOltLWzJdHbdJSZxrrPUYhSZtasiAfDzT
+[2mNov 16 19:23:06.654[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/agents/0/jobs [2mduration=[0m1.40387ms [2mstatus=[0m200 [2mid=[0mAuvrGufySvbheOGErOCwZaVjezHdPAPf
+[2mNov 16 19:23:06.654[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/agents/0/containers [2mduration=[0m2.291528ms [2mstatus=[0m200 [2mid=[0mzDlZOdxQzoYOjjptxvvJLiWKTqMusAzM
+[2mNov 16 19:23:06.687[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/agents/0/system/df [2mduration=[0m34.310802ms [2mstatus=[0m200 [2mid=[0mqDkrFazMZcHQHdylUEAuqUeuynGBCFCc
+[2mNov 16 19:23:06.691[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/agents/0/activities [2mduration=[0m309.167µs [2mstatus=[0m200 [2mid=[0mTpaaVWDIRzpaCJBngBQbJJhhZCtekQBD
+[2mNov 16 19:23:06.710[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/agents/0/activities [2mduration=[0m228.941µs [2mstatus=[0m200 [2mid=[0mvhnNeRJXrZbpDxEhipEgoLgMgCxqORTE
+[2mNov 16 19:23:07.313[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/agents/0/events/changes [2mduration=[0m602.336318ms [2mstatus=[0m200 [2mid=[0moTbLBIDBRTcphTaboxXzZJuDrYUiLFwK
+[2mNov 16 19:23:08.294[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/agents/0/settings/public [2mduration=[0m219.723µs [2mstatus=[0m200 [2mid=[0mubhNusGYwaobqGKfVKdVXRYFjHTOdLli
+[2mNov 16 19:23:08.299[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/agents/0/swarm/status [2mduration=[0m252.052µs [2mstatus=[0m200 [2mid=[0mizkPMuykVpkjJgoiykysScpZXLNcYimU
+[2mNov 16 19:23:08.300[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/agents/0/podman/status [2mduration=[0m87.412µs [2mstatus=[0m200 [2mid=[0meKWENMRNxvOFhomAmbPgofSIAYQkExSj
+[2mNov 16 19:23:08.632[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/app/version [2mduration=[0m111.791µs [2mstatus=[0m200 [2mid=[0mMYwntAInPrHcnLzVsPSSYcjgfVfIjLze
+[2mNov 16 19:23:08.641[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/agents/0/activities [2mduration=[0m335.994µs [2mstatus=[0m200 [2mid=[0mXfSzmtSlqxtZbcGSgqCwSaRQZvnWceYW
+[2mNov 16 19:23:08.658[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/agents/0/activities [2mduration=[0m235.99µs [2mstatus=[0m200 [2mid=[0msezWsJluGOEayvjAfuvEEEIKWfYjlxZR
+[2mNov 16 19:23:14.836[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/agents/0/events/changes [2mduration=[0m6.177857589s [2mstatus=[0m200 [2mid=[0mnkmlbJFHGcMznCEgeUgGgfcbOHsbShKH
+[2mNov 16 19:24:00.014[0m [92mINF[0m Incoming request [2mmethod=[0mHEAD [2mpath=[0m/api/agents/0/system/health [2mduration=[0m457.752µs [2mstatus=[0m200 [2mid=[0mxhIMTJWFoplhFZEHZmLUHLuoonKTvKCc
+[2mNov 16 19:24:05.732[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/agents/0/registries [2mduration=[0m445.832µs [2mstatus=[0m200 [2mid=[0mehaNuJmAytzXfwztvqwbqODqglvmAZlj
+[2mNov 16 19:24:08.764[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/agents/0/system/health [2mduration=[0m507.608µs [2mstatus=[0m200 [2mid=[0mnpeJUPwioCLMVltVADmZaUDdvdmcLilv
+[2mNov 16 19:24:12.125[0m [92mINF[0m No orphaned image update records found
+[2mNov 16 19:24:12.125[0m [92mINF[0m Image update check completed [2mtotalImages=[0m1 [2mfailedImages=[0m0 [2mfailedContainers=[0m0
+[2mNov 16 19:24:12.126[0m [92mINF[0m Workflow instance terminated [2mscope=[0mworkflow [2mworkflow=[0mimage-check [2minstanceID=[0mimage-check-01a1e5d1-2691-783d-84d3-99aefaea1f40 [2mstatus=[0mcompleted [2mcompensation=[0mnone [2mcause=[0m""
+[2mNov 16 19:24:12.205[0m [92mINF[0m Incoming request [2mmethod=[0mPOST [2mpath=[0m/api/agents/0/images/updates/check [2mduration=[0m411.649377ms [2mstatus=[0m200 [2mid=[0mEtkKvdoAwDoTgOiiWYHboYvAWVbgkzjO
+[2mNov 16 19:25:37.853[0m [92mINF[0m Restarting projects filesystem watcher
+[2mNov 16 19:25:37.853[0m [93mWRN[0m Projects filesystem watcher is monitoring directories recursively; very deep trees may require increasing fs.inotify.max_user_watches [2mpaths=[0m[/tmp/arcane-live/agent/projects] [2msysctl=[0mfs.inotify.max_user_watches
+[2mNov 16 19:25:37.854[0m [92mINF[0m Projects filesystem watcher started [2mpaths=[0m[/tmp/arcane-live/agent/projects]
+[2mNov 16 19:25:37.855[0m [92mINF[0m Restarting templates filesystem watcher
+[2mNov 16 19:25:37.855[0m [93mWRN[0m Filesystem watcher startup failed; retrying [2merror=[0m"create directory \"/app/data/templates\": mkdir /app: permission denied"
+[2mNov 16 19:26:00.015[0m [92mINF[0m Incoming request [2mmethod=[0mHEAD [2mpath=[0m/api/agents/0/system/health [2mduration=[0m725.425µs [2mstatus=[0m200 [2mid=[0mjbtCuOESBtpvnjdBVYZcvuzqlvldkPEa
+[2mNov 16 19:28:00.017[0m [92mINF[0m Incoming request [2mmethod=[0mHEAD [2mpath=[0m/api/agents/0/system/health [2mduration=[0m406.765µs [2mstatus=[0m200 [2mid=[0mXTuvxUkerOMtOVgBYQZgpqNBgnGpKrkf

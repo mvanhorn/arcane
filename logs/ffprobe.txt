@@ -1,0 +1,26 @@
+=== out.mp4 ===
+codec_name=h264
+codec_type=video
+width=1920
+height=1080
+pix_fmt=yuv420p
+r_frame_rate=30/1
+avg_frame_rate=30/1
+duration=38.666667
+nb_frames=1160
+nb_read_frames=1160
+
+=== preview.gif ===
+codec_name=gif
+codec_type=video
+width=1280
+height=720
+pix_fmt=bgra
+r_frame_rate=8/1
+avg_frame_rate=25/3
+duration=38.630000
+nb_frames=309
+nb_read_frames=309
+
+GIF_BYTES=1411242
+MP4_BYTES=2407885

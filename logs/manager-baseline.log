@@ -1,0 +1,133 @@
+2026/11/16 19:17:35 INFO ARCANE_LISTEN bound to loopback; trusting loopback proxies for X-Forwarded headers listen=127.0.0.1 trustedProxies=127.0.0.0/8,::1/128
+[2mNov 16 19:17:35.846[0m [92mINF[0m Arcane is starting... [2mversion=[0mdev
+[2mNov 16 19:17:35.847[0m [92mINF[0m Set Go memory limit from cgroup [2mcgroupLimitBytes=[0m15706882048 [2mgoMemoryLimitBytes=[0m14136193836
+[2mNov 16 19:17:35.847[0m [92mINF[0m Arcane Identity Configuration [2mpuid=[0m1000 [2mpgid=[0m103
+[2mNov 16 19:17:35.851[0m [92mINF[0m Resolved database migration state [2mprovider=[0msqlite [2mcurrentVersion=[0m0 [2mrequiredVersion=[0m116
+[2mNov 16 19:17:35.894[0m [92mINF[0m Database migrations completed successfully [2mprovider=[0msqlite [2mtargetVersion=[0m116
+[2mNov 16 19:17:35.895[0m [92mINF[0m Database initialized successfully
+[2mNov 16 19:17:35.899[0m [92mINF[0m Loaded environment settings [2mcount=[0m1
+[2mNov 16 19:17:35.901[0m [92mINF[0m Checking for orphaned volume helper containers from previous runs
+[2mNov 16 19:17:35.903[0m [92mINF[0m Orphaned volume helper cleanup completed [2mremovedCount=[0m0
+[2mNov 16 19:17:35.903[0m [92mINF[0m Encrypted stored sensitive settings [2mcount=[0m0
+[2mNov 16 19:17:35.914[0m [92mINF[0m created local environment record [2mid=[0m0
+[2mNov 16 19:17:35.914[0m [93mWRN[0m Startup task failed [2mtask=[0m"clean up leaked GitOps scratch directories" [2merror=[0m"failed to resolve projects directory for gitops scratch cleanup: create directory \"/app/data/projects\": mkdir /app: permission denied"
+[2mNov 16 19:17:36.007[0m [92mINF[0m 👑 Default admin user created!
+[2mNov 16 19:17:36.007[0m [92mINF[0m 🔑 Default admin username [2musername=[0marcane
+[2mNov 16 19:17:36.008[0m [92mINF[0m Default admin granted global Admin role assignment [2muserId=[0me5128aae-a249-4370-a1f1-50fb8e545218
+[2mNov 16 19:17:36.102[0m [93mWRN[0m ⚠️  AUTO-LOGIN IS ENABLED - This is a security risk! Do NOT use in production. [2musername=[0marcane
+[2mNov 16 19:17:36.102[0m [93mWRN[0m ⚠️  Auto-login will automatically authenticate users without requiring credentials.
+[2mNov 16 19:17:36.106[0m [92mINF[0m Backfilled missing permissions for bootstrap api key [2mapiKeyId=[0md7635428-912a-4bd3-a1a1-bdc17d854013 [2mpermCount=[0m230 [2menvId=[0m<nil>
+[2mNov 16 19:17:36.107[0m [93mWRN[0m failed to ensure default templates [2merror=[0m"get templates directory: create directory \"/app/data/templates\": mkdir /app: permission denied"
+[2mNov 16 19:17:36.107[0m [92mINF[0m Registered scheduled volume backup jobs [2mcount=[0m0
+[2mNov 16 19:17:36.108[0m [92mINF[0m Registered backup schedules [2msystemPolicies=[0m0 [2mvolumePolicies=[0m0
+[2mNov 16 19:17:36.108[0m [92mINF[0m Registered environment health jobs [2mcount=[0m1
+[2mNov 16 19:17:36.110[0m [92mINF[0m Configured agent tunnel server [2mgrpcEnabled=[0mtrue [2mwebsocketEnabled=[0mtrue
+[2mNov 16 19:17:36.152[0m [92mINF[0m Using shared HTTP/gRPC listener for agent tunnel [2maddr=[0m127.0.0.1:3552
+[2mNov 16 19:17:36.154[0m [92mINF[0m Creating metadata table [2mtable=[0marcane_francis_metadata
+[2mNov 16 19:17:36.154[0m [92mINF[0m Performing migration [2mcomponent=[0mmigrations [2mlevel=[0m0
+[2mNov 16 19:17:36.154[0m [92mINF[0m Performing SQLite database migration [2mmigration=[0m01-schema.sql
+[2mNov 16 19:17:36.155[0m [92mINF[0m Performing migration [2mcomponent=[0mmigrations [2mlevel=[0m1
+[2mNov 16 19:17:36.155[0m [92mINF[0m Performing SQLite database migration [2mmigration=[0m02-join-tokens.sql
+[2mNov 16 19:17:36.155[0m [92mINF[0m Performing migration [2mcomponent=[0mmigrations [2mlevel=[0m2
+[2mNov 16 19:17:36.155[0m [92mINF[0m Performing SQLite database migration [2mmigration=[0m03-jobs.sql
+[2mNov 16 19:17:36.156[0m [92mINF[0m Performing migration [2mcomponent=[0mmigrations [2mlevel=[0m3
+[2mNov 16 19:17:36.156[0m [92mINF[0m Performing SQLite database migration [2mmigration=[0m04-cluster.sql
+[2mNov 16 19:17:36.156[0m [92mINF[0m Performing migration [2mcomponent=[0mmigrations [2mlevel=[0m4
+[2mNov 16 19:17:36.156[0m [92mINF[0m Performing SQLite database migration [2mmigration=[0m05-workflow-labels.sql
+[2mNov 16 19:17:36.156[0m [92mINF[0m Performing migration [2mcomponent=[0mmigrations [2mlevel=[0m5
+[2mNov 16 19:17:36.156[0m [92mINF[0m Performing SQLite database migration [2mmigration=[0m06-terminal-jobs.sql
+[2mNov 16 19:17:36.156[0m [92mINF[0m Performing migration [2mcomponent=[0mmigrations [2mlevel=[0m6
+[2mNov 16 19:17:36.156[0m [92mINF[0m Performing SQLite database migration [2mmigration=[0m07-host-session-draining.sql
+[2mNov 16 19:17:36.157[0m [92mINF[0m Performing migration [2mcomponent=[0mmigrations [2mlevel=[0m7
+[2mNov 16 19:17:36.157[0m [92mINF[0m Performing SQLite database migration [2mmigration=[0m08-management.sql
+[2mNov 16 19:17:36.164[0m [92mINF[0m Registered actor host [2mscope=[0mfrancis.arcane.internal [2mhostId=[0m01a1e5cb-1d23-72c5-9f50-558e6cdfe333 [2maddress=[0m127.0.0.1:3551
+[2mNov 16 19:17:36.164[0m [92mINF[0m Schedule expired data clean up [2mscope=[0mfrancis.arcane.internal [2minterval=[0m10m0s
+[2mNov 16 19:17:36.164[0m [92mINF[0m Peer WebTransport server started [2mscope=[0mfrancis.arcane.internal [2mbind=[0m127.0.0.1:3551
+[2mNov 16 19:17:36.165[0m [92mINF[0m Cron job registered [2mscope=[0mworkflow [2mworkflow=[0mimage-check [2mcronJob=[0mimage-check.purge [2mjobID=[0m01a1e5cb-1d25-7a6b-96ec-4bb217dcfd33
+[2mNov 16 19:17:36.166[0m [92mINF[0m Cron job registered [2mscope=[0mworkflow [2mworkflow=[0mvulnerability-scan [2mcronJob=[0mvulnerability-scan.purge [2mjobID=[0m01a1e5cb-1d26-76d8-add7-c609880b1d38
+[2mNov 16 19:17:36.167[0m [92mINF[0m Cron job registered [2mscope=[0mworkflow [2mworkflow=[0mauto-patch [2mcronJob=[0mauto-patch.purge [2mjobID=[0m01a1e5cb-1d27-7580-97bd-43572f4c4a47
+[2mNov 16 19:17:36.168[0m [92mINF[0m Starting scheduler [2mtimezone=[0mUTC [2mutcOffset=[0m+00:00
+[2mNov 16 19:17:36.168[0m [92mINF[0m Cron job registered [2mscope=[0mworkflow [2mworkflow=[0mvolume-backup [2mcronJob=[0mvolume-backup.purge [2mjobID=[0m01a1e5cb-1d28-76b8-9742-3294d7586d88
+[2mNov 16 19:17:36.169[0m [92mINF[0m Cron job registered [2mscope=[0mworkflow [2mworkflow=[0mvolume-backup-policy [2mcronJob=[0mvolume-backup-policy.purge [2mjobID=[0m01a1e5cb-1d29-710a-b413-53b54fa1d9ae
+[2mNov 16 19:17:36.170[0m [92mINF[0m Cron job registered [2mscope=[0mworkflow [2mworkflow=[0mgitops-sync [2mcronJob=[0mgitops-sync.purge [2mjobID=[0m01a1e5cb-1d2a-76bb-9384-0d15354c1878
+[2mNov 16 19:17:36.171[0m [92mINF[0m Cron job registered [2mscope=[0mworkflow [2mworkflow=[0msystem-backup [2mcronJob=[0msystem-backup.purge [2mjobID=[0m01a1e5cb-1d2b-7292-8394-67077a84459f
+[2mNov 16 19:17:36.172[0m [92mINF[0m Cron job registered [2mscope=[0mworkflow [2mworkflow=[0msystem-backup-policy [2mcronJob=[0msystem-backup-policy.purge [2mjobID=[0m01a1e5cb-1d2c-74b6-b1b0-fbe720255914
+[2mNov 16 19:17:36.173[0m [92mINF[0m Cron job registered [2mscope=[0mworkflow [2mworkflow=[0msystem-volume-backup [2mcronJob=[0msystem-volume-backup.purge [2mjobID=[0m01a1e5cb-1d2d-722d-ae7c-18ecc48f3275
+[2mNov 16 19:17:36.174[0m [92mINF[0m Cron job registered [2mscope=[0mworkflow [2mworkflow=[0msystem-volume-backup-policy [2mcronJob=[0msystem-volume-backup-policy.purge [2mjobID=[0m01a1e5cb-1d2d-7eb9-bade-e4b88771d6eb
+[2mNov 16 19:17:36.174[0m [92mINF[0m Cron job registered [2mscope=[0mworkflow [2mworkflow=[0mupdate-all [2mcronJob=[0mupdate-all.purge [2mjobID=[0m01a1e5cb-1d2e-79ab-ad5a-46a479771be3
+[2mNov 16 19:17:36.175[0m [92mINF[0m Cron job registered [2mscope=[0mworkflow [2mworkflow=[0mauto-update [2mcronJob=[0mauto-update.purge [2mjobID=[0m01a1e5cb-1d2f-7377-8f95-553716d40f74
+[2mNov 16 19:17:36.176[0m [92mINF[0m Cron job registered [2mscope=[0mworkflow [2mworkflow=[0mcontainer-update [2mcronJob=[0mcontainer-update.purge [2mjobID=[0m01a1e5cb-1d30-7164-8def-0c4f9edcad72
+[2mNov 16 19:17:36.178[0m [92mINF[0m Registered gitops auto-sync jobs on startup [2mcount=[0m0
+[2mNov 16 19:17:36.178[0m [92mINF[0m project image metadata backfill completed [2mprojects=[0m0 [2mduration=[0m209.732µs [2mattempt=[0m1
+[2mNov 16 19:17:36.191[0m [92mINF[0m Filesystem watcher job registered
+[2mNov 16 19:17:36.191[0m [92mINF[0m Restarting projects filesystem watcher
+[2mNov 16 19:17:36.191[0m [93mWRN[0m Filesystem watcher startup failed; retrying [2merror=[0m"create directory \"/app/data/projects\": mkdir /app: permission denied"
+[2mNov 16 19:17:36.191[0m [92mINF[0m sending analytics heartbeat [2mversion=[0munknown [2minstanceId=[0mc0fee086-bd44-4501-8a40-81908b32efc1 [2mserverType=[0mmanager [2mheartbeatUrl=[0mhttp://localhost:8080/heartbeat [2menv=[0mdevelopment
+[2mNov 16 19:17:36.195[0m [92mINF[0m Starting HTTP server [2maddr=[0m127.0.0.1:3552 [2mlisten=[0m127.0.0.1 [2mport=[0m3552 [2mtlsEnabled=[0mfalse
+[2mNov 16 19:17:36.196[0m [93mWRN[0m Failed to sync global variables to environment [2menvironmentId=[0m0 [2merror=[0m"failed to get projects directory: create directory \"/app/data/projects\": mkdir /app: permission denied"
+[2mNov 16 19:17:36.200[0m [92mINF[0m Docker API versions detected [2mclientApiVersion=[0m1.52 [2mserverApiVersion=[0m1.52 [2meffectiveApiVersion=[0m1.52
+[2mNov 16 19:17:37.235[0m [91mERR[0m analytics heartbeat failed; retrying after the retry delay [2merror=[0m"failed to send request: Post \"http://localhost:8080/heartbeat\": dial tcp [::1]:8080: connect: connection refused" [2mretryDelay=[0m1h0m0s
+[2mNov 16 19:17:38.201[0m [92mINF[0m image scan run started
+[2mNov 16 19:17:38.572[0m [92mINF[0m No orphaned image update records found
+[2mNov 16 19:17:38.572[0m [92mINF[0m Image update check completed [2mtotalImages=[0m1 [2mfailedImages=[0m0 [2mfailedContainers=[0m0
+[2mNov 16 19:17:38.573[0m [92mINF[0m Workflow instance terminated [2mscope=[0mworkflow [2mworkflow=[0mimage-check [2minstanceID=[0mimage-check-5298ca17-0699-4e28-ae10-c40678b0a21a-1 [2mstatus=[0mcompleted [2mcompensation=[0mnone [2mcause=[0m""
+[2mNov 16 19:17:38.608[0m [92mINF[0m image scan run completed [2mstatus=[0msucceeded [2mmessage=[0m"Image update check completed: 1 checked, 0 errors"
+[2mNov 16 19:17:41.191[0m [92mINF[0m Restarting projects filesystem watcher
+[2mNov 16 19:17:41.192[0m [93mWRN[0m Filesystem watcher startup failed; retrying [2merror=[0m"create directory \"/app/data/projects\": mkdir /app: permission denied"
+[2mNov 16 19:17:41.719[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/auth/me [2mduration=[0m75.085947ms [2mstatus=[0m200 [2mid=[0mWOOizLGFXUiFtXqJYJexGLOvbVMKbpZz
+[2mNov 16 19:17:41.728[0m [92mINF[0m Incoming request [2mmethod=[0mPOST [2mpath=[0m/api/agents [2mduration=[0m3.112702ms [2mstatus=[0m200 [2mid=[0mlhBASuVASWFSczRuDVrGcwnTwtknnhqf
+[2mNov 16 19:17:41.733[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/agents [2mduration=[0m516.441µs [2mstatus=[0m200 [2mid=[0mdAQsiqmBOehNqycvVBVlaXpJzXtPReqX
+[2mNov 16 19:17:41.839[0m [92mINF[0m skipping analytics heartbeat; next one is not due yet [2mnextAttemptAt=[0m2026-11-16T20:17:37.236Z
+[2mNov 16 19:17:49.084[0m [93mWRN[0m Denying proxied request with no known permission mapping [2mmethod=[0mGET [2mpath=[0m/registries [2menvironmentId=[0m726c2ee0-fb65-45dd-8e0d-e3efe6377cd5
+[2mNov 16 19:17:49.084[0m [93mWRN[0m Forbidden [2mmethod=[0mGET [2mpath=[0m/api/agents/726c2ee0-fb65-45dd-8e0d-e3efe6377cd5/registries [2mduration=[0m471.207µs [2mstatus=[0m403 [2mid=[0maYVBpYtKmDecXfieLJBtpwJdRvOvMYjT
+[2mNov 16 19:17:49.125[0m [93mWRN[0m Denying proxied request with no known permission mapping [2mmethod=[0mGET [2mpath=[0m/system/health [2menvironmentId=[0m726c2ee0-fb65-45dd-8e0d-e3efe6377cd5
+[2mNov 16 19:17:49.125[0m [93mWRN[0m Forbidden [2mmethod=[0mGET [2mpath=[0m/api/agents/726c2ee0-fb65-45dd-8e0d-e3efe6377cd5/system/health [2mduration=[0m177.2µs [2mstatus=[0m403 [2mid=[0mHCAjUZLQSefVnjbQuJUfycMlrDYnukjE
+[2mNov 16 19:17:49.145[0m [93mWRN[0m Denying proxied request with no known permission mapping [2mmethod=[0mPOST [2mpath=[0m/images/updates/check [2menvironmentId=[0m726c2ee0-fb65-45dd-8e0d-e3efe6377cd5
+[2mNov 16 19:17:49.145[0m [93mWRN[0m Forbidden [2mmethod=[0mPOST [2mpath=[0m/api/agents/726c2ee0-fb65-45dd-8e0d-e3efe6377cd5/images/updates/check [2mduration=[0m168.106µs [2mstatus=[0m403 [2mid=[0mCTpIKsjwaoQaaqDmszsBbWCNzadnSjgj
+[2mNov 16 19:17:49.163[0m [93mWRN[0m No active agent tunnel for environment [2menvironmentId=[0m726c2ee0-fb65-45dd-8e0d-e3efe6377cd5
+[2mNov 16 19:17:49.163[0m [91mERR[0m Service Unavailable [2mmethod=[0mGET [2mpath=[0m/api/agents/726c2ee0-fb65-45dd-8e0d-e3efe6377cd5/system/docker/info [2mduration=[0m184.19µs [2mstatus=[0m503 [2mid=[0mSDXOfKpjOirfpZvEwiPWSKuLJFIcWGHU
+[2mNov 16 19:17:49.182[0m [93mWRN[0m No active agent tunnel for environment [2menvironmentId=[0m726c2ee0-fb65-45dd-8e0d-e3efe6377cd5
+[2mNov 16 19:17:49.182[0m [91mERR[0m Service Unavailable [2mmethod=[0mGET [2mpath=[0m/api/agents/726c2ee0-fb65-45dd-8e0d-e3efe6377cd5/system/df [2mduration=[0m164.152µs [2mstatus=[0m503 [2mid=[0mtSpFfpKFipMwgYpeKywrVMpDNQHYmYog
+[2mNov 16 19:17:49.200[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/registries [2mduration=[0m451.758µs [2mstatus=[0m200 [2mid=[0mYuYlIuhntyEImPHfigZJdLEjGbDKZCcK
+[2mNov 16 19:17:49.218[0m [93mWRN[0m Not Found [2mmethod=[0mGET [2mpath=[0m/api/agents/726c2ee0-fb65-45dd-8e0d-e3efe6377cd5/deployment [2mduration=[0m39.193µs [2mstatus=[0m404 [2mid=[0mKBulqlOFMlosmxBUtfEWDVIdMzjmmwZq
+[2mNov 16 19:17:51.192[0m [92mINF[0m Restarting projects filesystem watcher
+[2mNov 16 19:17:51.192[0m [93mWRN[0m Filesystem watcher startup failed; retrying [2merror=[0m"create directory \"/app/data/projects\": mkdir /app: permission denied"
+[2mNov 16 19:18:00.011[0m [93mWRN[0m environment health check failed [2menvironmentId=[0m726c2ee0-fb65-45dd-8e0d-e3efe6377cd5 [2mstatus=[0moffline [2merror=[0m"agent is not connected"
+[2mNov 16 19:18:04.880[0m [93mWRN[0m environment health check failed [2menvironmentId=[0m726c2ee0-fb65-45dd-8e0d-e3efe6377cd5 [2mstatus=[0moffline [2merror=[0m"agent is not connected"
+[2mNov 16 19:18:05.811[0m [92mINF[0m Incoming request [2mmethod=[0mPOST [2mpath=[0m/api/enrollment-tokens [2mduration=[0m90.572639ms [2mstatus=[0m200 [2mid=[0mAZsHWtyRqlvsLGqvbntgSTVHwGxwsxRf
+[2mNov 16 19:18:05.818[0m [92mINF[0m Incoming request [2mmethod=[0mPOST [2mpath=[0m/api/apikeys [2mduration=[0m1.114594ms [2mstatus=[0m200 [2mid=[0mXCrxydpXOCTliksmUKrcPvQktBOBGfbz
+[2mNov 16 19:18:05.823[0m [92mINF[0m Incoming request [2mmethod=[0mPOST [2mpath=[0m/api/apikeys [2mduration=[0m560.08µs [2mstatus=[0m200 [2mid=[0mzvylDetoZpBmgjAaKZDqIKwAfViCPZLP
+[2mNov 16 19:18:11.193[0m [92mINF[0m Restarting projects filesystem watcher
+[2mNov 16 19:18:11.194[0m [93mWRN[0m Filesystem watcher startup failed; retrying [2merror=[0m"create directory \"/app/data/projects\": mkdir /app: permission denied"
+[2mNov 16 19:18:14.345[0m [93mWRN[0m environment health check failed [2menvironmentId=[0m726c2ee0-fb65-45dd-8e0d-e3efe6377cd5 [2mstatus=[0moffline [2merror=[0m"agent is not connected"
+[2mNov 16 19:18:28.920[0m [93mWRN[0m Denying proxied request with no known permission mapping [2mmethod=[0mGET [2mpath=[0m/registries [2menvironmentId=[0m726c2ee0-fb65-45dd-8e0d-e3efe6377cd5
+[2mNov 16 19:18:28.920[0m [93mWRN[0m Forbidden [2mmethod=[0mGET [2mpath=[0m/api/agents/726c2ee0-fb65-45dd-8e0d-e3efe6377cd5/registries [2mduration=[0m91.344563ms [2mstatus=[0m403 [2mid=[0mYHNqFCBNrXjfULCDWPNtKrgQRxsYvTSz
+[2mNov 16 19:18:28.938[0m [93mWRN[0m Denying proxied request with no known permission mapping [2mmethod=[0mGET [2mpath=[0m/system/health [2menvironmentId=[0m726c2ee0-fb65-45dd-8e0d-e3efe6377cd5
+[2mNov 16 19:18:28.938[0m [93mWRN[0m Forbidden [2mmethod=[0mGET [2mpath=[0m/api/agents/726c2ee0-fb65-45dd-8e0d-e3efe6377cd5/system/health [2mduration=[0m236.288µs [2mstatus=[0m403 [2mid=[0mMKyyUeUKMdaFFsNhXuELXgVynhyILGkK
+[2mNov 16 19:18:28.954[0m [93mWRN[0m Denying proxied request with no known permission mapping [2mmethod=[0mPOST [2mpath=[0m/images/updates/check [2menvironmentId=[0m726c2ee0-fb65-45dd-8e0d-e3efe6377cd5
+[2mNov 16 19:18:28.954[0m [93mWRN[0m Forbidden [2mmethod=[0mPOST [2mpath=[0m/api/agents/726c2ee0-fb65-45dd-8e0d-e3efe6377cd5/images/updates/check [2mduration=[0m167.32µs [2mstatus=[0m403 [2mid=[0mCCHKdfMdCtUCCAScwseHyfgnxlRDQoiw
+[2mNov 16 19:18:28.971[0m [93mWRN[0m No active agent tunnel for environment [2menvironmentId=[0m726c2ee0-fb65-45dd-8e0d-e3efe6377cd5
+[2mNov 16 19:18:28.971[0m [91mERR[0m Service Unavailable [2mmethod=[0mGET [2mpath=[0m/api/agents/726c2ee0-fb65-45dd-8e0d-e3efe6377cd5/system/docker/info [2mduration=[0m199.325µs [2mstatus=[0m503 [2mid=[0mFAXlXYJzEidOqKYxPRfzBawWlWMQzhAn
+[2mNov 16 19:18:28.986[0m [93mWRN[0m No active agent tunnel for environment [2menvironmentId=[0m726c2ee0-fb65-45dd-8e0d-e3efe6377cd5
+[2mNov 16 19:18:28.987[0m [91mERR[0m Service Unavailable [2mmethod=[0mGET [2mpath=[0m/api/agents/726c2ee0-fb65-45dd-8e0d-e3efe6377cd5/system/df [2mduration=[0m176.697µs [2mstatus=[0m503 [2mid=[0myJJHBCCBGptsBAYzbYzzioVOwzpXgYUD
+[2mNov 16 19:18:29.003[0m [93mWRN[0m Denying proxied request with no known permission mapping [2mmethod=[0mGET [2mpath=[0m/registries [2menvironmentId=[0m726c2ee0-fb65-45dd-8e0d-e3efe6377cd5
+[2mNov 16 19:18:29.003[0m [93mWRN[0m Forbidden [2mmethod=[0mGET [2mpath=[0m/api/agents/726c2ee0-fb65-45dd-8e0d-e3efe6377cd5/registries [2mduration=[0m918.694µs [2mstatus=[0m403 [2mid=[0mlIGODIsdBHOzSxbDsOaleIGZyNhhGntE
+[2mNov 16 19:18:29.019[0m [93mWRN[0m Denying proxied request with no known permission mapping [2mmethod=[0mGET [2mpath=[0m/system/health [2menvironmentId=[0m726c2ee0-fb65-45dd-8e0d-e3efe6377cd5
+[2mNov 16 19:18:29.019[0m [93mWRN[0m Forbidden [2mmethod=[0mGET [2mpath=[0m/api/agents/726c2ee0-fb65-45dd-8e0d-e3efe6377cd5/system/health [2mduration=[0m160.078µs [2mstatus=[0m403 [2mid=[0mWojTnHYNzzUvQTbEcyMiunpvYRRkwdRs
+[2mNov 16 19:18:29.035[0m [93mWRN[0m Denying proxied request with no known permission mapping [2mmethod=[0mPOST [2mpath=[0m/images/updates/check [2menvironmentId=[0m726c2ee0-fb65-45dd-8e0d-e3efe6377cd5
+[2mNov 16 19:18:29.035[0m [93mWRN[0m Forbidden [2mmethod=[0mPOST [2mpath=[0m/api/agents/726c2ee0-fb65-45dd-8e0d-e3efe6377cd5/images/updates/check [2mduration=[0m163.758µs [2mstatus=[0m403 [2mid=[0mkmaTxionBfRMkarbVUESAeJjVIARfCMg
+[2mNov 16 19:18:29.050[0m [93mWRN[0m No active agent tunnel for environment [2menvironmentId=[0m726c2ee0-fb65-45dd-8e0d-e3efe6377cd5
+[2mNov 16 19:18:29.050[0m [91mERR[0m Service Unavailable [2mmethod=[0mGET [2mpath=[0m/api/agents/726c2ee0-fb65-45dd-8e0d-e3efe6377cd5/system/docker/info [2mduration=[0m194.595µs [2mstatus=[0m503 [2mid=[0mXBFTTWgCzHpRKThnWnXfWhWZVpWcimmU
+[2mNov 16 19:18:29.065[0m [93mWRN[0m No active agent tunnel for environment [2menvironmentId=[0m726c2ee0-fb65-45dd-8e0d-e3efe6377cd5
+[2mNov 16 19:18:29.065[0m [91mERR[0m Service Unavailable [2mmethod=[0mGET [2mpath=[0m/api/agents/726c2ee0-fb65-45dd-8e0d-e3efe6377cd5/system/df [2mduration=[0m173.344µs [2mstatus=[0m503 [2mid=[0mljYTFbJXYkAJyUoGSKErwuLescKXglYG
+[2mNov 16 19:18:29.081[0m [93mWRN[0m Denying proxied request with no known permission mapping [2mmethod=[0mGET [2mpath=[0m/registries [2menvironmentId=[0m726c2ee0-fb65-45dd-8e0d-e3efe6377cd5
+[2mNov 16 19:18:29.081[0m [93mWRN[0m Forbidden [2mmethod=[0mGET [2mpath=[0m/api/agents/726c2ee0-fb65-45dd-8e0d-e3efe6377cd5/registries [2mduration=[0m552.481µs [2mstatus=[0m403 [2mid=[0mGmFHjbwMlUhZCRXgpZBWQoNdulqgWWiM
+[2mNov 16 19:18:29.097[0m [93mWRN[0m Denying proxied request with no known permission mapping [2mmethod=[0mGET [2mpath=[0m/system/health [2menvironmentId=[0m726c2ee0-fb65-45dd-8e0d-e3efe6377cd5
+[2mNov 16 19:18:29.097[0m [93mWRN[0m Forbidden [2mmethod=[0mGET [2mpath=[0m/api/agents/726c2ee0-fb65-45dd-8e0d-e3efe6377cd5/system/health [2mduration=[0m160.433µs [2mstatus=[0m403 [2mid=[0moUmqAKfLwiEexNxStLjVCadbhTjYRBag
+[2mNov 16 19:18:29.112[0m [93mWRN[0m Denying proxied request with no known permission mapping [2mmethod=[0mPOST [2mpath=[0m/images/updates/check [2menvironmentId=[0m726c2ee0-fb65-45dd-8e0d-e3efe6377cd5
+[2mNov 16 19:18:29.112[0m [93mWRN[0m Forbidden [2mmethod=[0mPOST [2mpath=[0m/api/agents/726c2ee0-fb65-45dd-8e0d-e3efe6377cd5/images/updates/check [2mduration=[0m166.135µs [2mstatus=[0m403 [2mid=[0mSvPnIrBkYKdcOYKKXuYFSYgVdUeWSDxK
+[2mNov 16 19:18:29.126[0m [93mWRN[0m Forbidden [2mmethod=[0mGET [2mpath=[0m/api/agents/726c2ee0-fb65-45dd-8e0d-e3efe6377cd5/system/docker/info [2mduration=[0m144.587µs [2mstatus=[0m403 [2mid=[0mFrAtixhtXRNnmGnmkdjIMEimZczahQCa
+[2mNov 16 19:18:29.141[0m [93mWRN[0m Forbidden [2mmethod=[0mGET [2mpath=[0m/api/agents/726c2ee0-fb65-45dd-8e0d-e3efe6377cd5/system/df [2mduration=[0m145.996µs [2mstatus=[0m403 [2mid=[0mOVNRjtgLvVCXbqAqfbwunqLdPRylugNz
+[2mNov 16 19:18:29.156[0m [92mINF[0m Incoming request [2mmethod=[0mGET [2mpath=[0m/api/registries [2mduration=[0m280.163µs [2mstatus=[0m200 [2mid=[0mnvZooxaGEszuWKalKsDfNUGyZATfyBfc
+[2mNov 16 19:18:32.043[0m [93mWRN[0m environment health check failed [2menvironmentId=[0m726c2ee0-fb65-45dd-8e0d-e3efe6377cd5 [2mstatus=[0moffline [2merror=[0m"agent is not connected"
+[2mNov 16 19:18:35.297[0m [92mINF[0m Incoming request [2mmethod=[0mPOST [2mpath=[0m/api/agents/726c2ee0-fb65-45dd-8e0d-e3efe6377cd5/deployment [2mduration=[0m930.634µs [2mstatus=[0m200 [2mid=[0mwuEwSMDXPCLgVPTUnCCRTimCVyGJFcOH

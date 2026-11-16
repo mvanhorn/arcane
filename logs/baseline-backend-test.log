@@ -1,0 +1,165 @@
+ok  	getarcane.dev/arcane/v3/api	2.825s
+?   	getarcane.dev/arcane/v3/api/handlers	[no test files]
+ok  	getarcane.dev/arcane/v3/api/ws	0.097s
+?   	getarcane.dev/arcane/v3/buildables	[no test files]
+ok  	getarcane.dev/arcane/v3/cli	0.141s
+ok  	getarcane.dev/arcane/v3/cli/admin	2.555s
+ok  	getarcane.dev/arcane/v3/cli/recovery	0.256s
+ok  	getarcane.dev/arcane/v3/cli/upgrade	0.077s
+?   	getarcane.dev/arcane/v3/cmd	[no test files]
+?   	getarcane.dev/arcane/v3/frontend	[no test files]
+ok  	getarcane.dev/arcane/v3/internal/activity	0.485s
+ok  	getarcane.dev/arcane/v3/internal/activity/children/pubsub	0.118s
+?   	getarcane.dev/arcane/v3/internal/activity/children/slots	[no test files]
+?   	getarcane.dev/arcane/v3/internal/activity/children/sweeps	[no test files]
+ok  	getarcane.dev/arcane/v3/internal/apikey	6.809s
+?   	getarcane.dev/arcane/v3/internal/apns	[no test files]
+ok  	getarcane.dev/arcane/v3/internal/appimages	1.001s
+ok  	getarcane.dev/arcane/v3/internal/auth	8.938s
+ok  	getarcane.dev/arcane/v3/internal/backup	0.151s
+ok  	getarcane.dev/arcane/v3/internal/bootstrap	7.572s
+ok  	getarcane.dev/arcane/v3/internal/build	0.148s
+ok  	getarcane.dev/arcane/v3/internal/build/children/workspace	0.086s
+ok  	getarcane.dev/arcane/v3/internal/common	0.026s
+ok  	getarcane.dev/arcane/v3/internal/config	0.041s
+ok  	getarcane.dev/arcane/v3/internal/config/schema	0.106s
+ok  	getarcane.dev/arcane/v3/internal/container	2.776s
+ok  	getarcane.dev/arcane/v3/internal/container/children/stats	0.038s
+ok  	getarcane.dev/arcane/v3/internal/database	8.222s
+?   	getarcane.dev/arcane/v3/internal/database/migrations	[no test files]
+ok  	getarcane.dev/arcane/v3/internal/di	0.675s
+ok  	getarcane.dev/arcane/v3/internal/diagnostics	0.162s
+ok  	getarcane.dev/arcane/v3/internal/docker	0.750s
+ok  	getarcane.dev/arcane/v3/internal/enrollment	2.335s
+ok  	getarcane.dev/arcane/v3/internal/environment	0.696s
+ok  	getarcane.dev/arcane/v3/internal/environment/children/enrollment	0.048s
+?   	getarcane.dev/arcane/v3/internal/environment/children/health	[no test files]
+ok  	getarcane.dev/arcane/v3/internal/environment/children/proxy	0.076s
+?   	getarcane.dev/arcane/v3/internal/environment/children/snippets	[no test files]
+?   	getarcane.dev/arcane/v3/internal/environment/children/swarm	[no test files]
+ok  	getarcane.dev/arcane/v3/internal/event	0.866s
+ok  	getarcane.dev/arcane/v3/internal/event/children/correlation	0.022s
+ok  	getarcane.dev/arcane/v3/internal/federated	0.184s
+ok  	getarcane.dev/arcane/v3/internal/gitops	8.973s
+?   	getarcane.dev/arcane/v3/internal/gitops/children/backup	[no test files]
+ok  	getarcane.dev/arcane/v3/internal/gitops/children/sync	0.261s
+ok  	getarcane.dev/arcane/v3/internal/gitrepo	0.087s
+ok  	getarcane.dev/arcane/v3/internal/health	0.091s
+ok  	getarcane.dev/arcane/v3/internal/image	0.186s
+ok  	getarcane.dev/arcane/v3/internal/image/children/attestations	0.247s
+ok  	getarcane.dev/arcane/v3/internal/image/children/patch	0.152s
+ok  	getarcane.dev/arcane/v3/internal/imageupdate	4.077s
+ok  	getarcane.dev/arcane/v3/internal/imageupdate/children/releasenotes	0.338s
+ok  	getarcane.dev/arcane/v3/internal/imageupdate/children/tags	0.057s
+ok  	getarcane.dev/arcane/v3/internal/job	0.192s
+?   	getarcane.dev/arcane/v3/internal/job/children/remote	[no test files]
+?   	getarcane.dev/arcane/v3/internal/job/children/runtime	[no test files]
+ok  	getarcane.dev/arcane/v3/internal/kv	0.063s
+ok  	getarcane.dev/arcane/v3/internal/ldap	0.207s
+ok  	getarcane.dev/arcane/v3/internal/middleware	0.141s
+ok  	getarcane.dev/arcane/v3/internal/network	0.092s
+ok  	getarcane.dev/arcane/v3/internal/notification	0.182s
+ok  	getarcane.dev/arcane/v3/internal/notification/children/templates	0.021s
+ok  	getarcane.dev/arcane/v3/internal/oidc	0.085s
+ok  	getarcane.dev/arcane/v3/internal/passkey	0.192s
+ok  	getarcane.dev/arcane/v3/internal/podman	0.084s
+?   	getarcane.dev/arcane/v3/internal/podman/children/kube	[no test files]
+ok  	getarcane.dev/arcane/v3/internal/podman/children/pods	0.062s
+ok  	getarcane.dev/arcane/v3/internal/podman/children/quadlets	0.062s
+ok  	getarcane.dev/arcane/v3/internal/podman/children/secrets	0.046s
+ok  	getarcane.dev/arcane/v3/internal/port	0.114s
+ok  	getarcane.dev/arcane/v3/internal/project	4.715s
+?   	getarcane.dev/arcane/v3/internal/project/children/deployment	[no test files]
+?   	getarcane.dev/arcane/v3/internal/project/children/details	[no test files]
+ok  	getarcane.dev/arcane/v3/internal/project/children/lifecycle	0.102s
+ok  	getarcane.dev/arcane/v3/internal/project/children/listing	0.064s
+?   	getarcane.dev/arcane/v3/internal/project/children/status	[no test files]
+ok  	getarcane.dev/arcane/v3/internal/project/children/sync	0.051s
+?   	getarcane.dev/arcane/v3/internal/project/children/tags	[no test files]
+?   	getarcane.dev/arcane/v3/internal/project/children/update	[no test files]
+?   	getarcane.dev/arcane/v3/internal/project/children/workspace	[no test files]
+ok  	getarcane.dev/arcane/v3/internal/registry	6.647s
+ok  	getarcane.dev/arcane/v3/internal/registry/children/browse	0.195s
+ok  	getarcane.dev/arcane/v3/internal/role	0.323s
+ok  	getarcane.dev/arcane/v3/internal/s3	0.124s
+ok  	getarcane.dev/arcane/v3/internal/scheduler	6.130s
+?   	getarcane.dev/arcane/v3/internal/scheduler/entityjobs	[no test files]
+ok  	getarcane.dev/arcane/v3/internal/scheduler/flow	1.561s
+?   	getarcane.dev/arcane/v3/internal/scheduler/flow/flowtest	[no test files]
+?   	getarcane.dev/arcane/v3/internal/scheduler/jobcontext	[no test files]
+ok  	getarcane.dev/arcane/v3/internal/scheduler/runs	1.722s
+?   	getarcane.dev/arcane/v3/internal/scheduler/schedule	[no test files]
+?   	getarcane.dev/arcane/v3/internal/search	[no test files]
+ok  	getarcane.dev/arcane/v3/internal/session	0.079s
+ok  	getarcane.dev/arcane/v3/internal/settings	0.148s
+ok  	getarcane.dev/arcane/v3/internal/swarm	0.048s
+ok  	getarcane.dev/arcane/v3/internal/swarm/children/configs	0.081s
+ok  	getarcane.dev/arcane/v3/internal/swarm/children/nodes	0.098s
+ok  	getarcane.dev/arcane/v3/internal/swarm/children/secrets	0.046s
+ok  	getarcane.dev/arcane/v3/internal/swarm/children/services	0.083s
+ok  	getarcane.dev/arcane/v3/internal/swarm/children/stacks	0.138s
+ok  	getarcane.dev/arcane/v3/internal/system	0.442s
+ok  	getarcane.dev/arcane/v3/internal/system/children/backup	0.113s
+ok  	getarcane.dev/arcane/v3/internal/system/children/backup/children/snapshots	0.062s
+ok  	getarcane.dev/arcane/v3/internal/system/children/backup/children/volumes	0.079s
+ok  	getarcane.dev/arcane/v3/internal/system/children/prune	0.103s
+ok  	getarcane.dev/arcane/v3/internal/system/children/upgrade	0.685s
+?   	getarcane.dev/arcane/v3/internal/telemetry	[no test files]
+ok  	getarcane.dev/arcane/v3/internal/template	0.136s
+ok  	getarcane.dev/arcane/v3/internal/updater	1.979s
+?   	getarcane.dev/arcane/v3/internal/updater/children/execution	[no test files]
+ok  	getarcane.dev/arcane/v3/internal/updater/children/recovery	0.099s
+ok  	getarcane.dev/arcane/v3/internal/upload	0.089s
+ok  	getarcane.dev/arcane/v3/internal/user	2.362s
+ok  	getarcane.dev/arcane/v3/internal/variable	0.128s
+ok  	getarcane.dev/arcane/v3/internal/version	0.202s
+ok  	getarcane.dev/arcane/v3/internal/volume	0.249s
+ok  	getarcane.dev/arcane/v3/internal/volume/children/backup	0.969s
+?   	getarcane.dev/arcane/v3/internal/volume/children/backup/children/browser	[no test files]
+ok  	getarcane.dev/arcane/v3/internal/volume/children/backup/children/policies	0.072s
+ok  	getarcane.dev/arcane/v3/internal/volume/children/backup/children/restore	0.078s
+ok  	getarcane.dev/arcane/v3/internal/volume/children/workspace	0.130s
+ok  	getarcane.dev/arcane/v3/internal/vulnerability	0.677s
+ok  	getarcane.dev/arcane/v3/internal/vulnerability/children/ignores	0.025s
+ok  	getarcane.dev/arcane/v3/internal/vulnerability/children/query	0.053s
+ok  	getarcane.dev/arcane/v3/internal/vulnerability/children/scan	0.078s
+ok  	getarcane.dev/arcane/v3/internal/vulnerability/children/scan/children/trivy	0.165s
+?   	getarcane.dev/arcane/v3/internal/vulnerability/children/store	[no test files]
+ok  	getarcane.dev/arcane/v3/internal/webhook	0.185s
+ok  	getarcane.dev/arcane/v3/pkg/activity	0.035s
+ok  	getarcane.dev/arcane/v3/pkg/agent	6.367s
+ok  	getarcane.dev/arcane/v3/pkg/authz	0.060s
+ok  	getarcane.dev/arcane/v3/pkg/backupbrowser	0.017s
+ok  	getarcane.dev/arcane/v3/pkg/cookie	0.006s
+ok  	getarcane.dev/arcane/v3/pkg/dhi	0.007s
+ok  	getarcane.dev/arcane/v3/pkg/francis	0.054s
+?   	getarcane.dev/arcane/v3/pkg/francis/testing	[no test files]
+ok  	getarcane.dev/arcane/v3/pkg/gitutil	0.223s
+ok  	getarcane.dev/arcane/v3/pkg/handlerutil	0.029s
+ok  	getarcane.dev/arcane/v3/pkg/httpx	0.363s
+ok  	getarcane.dev/arcane/v3/pkg/iconcatalog	0.007s
+ok  	getarcane.dev/arcane/v3/pkg/imageref	0.038s
+ok  	getarcane.dev/arcane/v3/pkg/jsonx	0.013s
+?   	getarcane.dev/arcane/v3/pkg/logging	[no test files]
+ok  	getarcane.dev/arcane/v3/pkg/notifications	1.189s
+ok  	getarcane.dev/arcane/v3/pkg/oidc	0.037s
+ok  	getarcane.dev/arcane/v3/pkg/pagination	0.015s
+ok  	getarcane.dev/arcane/v3/pkg/podman	0.040s
+ok  	getarcane.dev/arcane/v3/pkg/projects	2.394s
+ok  	getarcane.dev/arcane/v3/pkg/registry	0.003s
+?   	getarcane.dev/arcane/v3/pkg/rustic	[no test files]
+ok  	getarcane.dev/arcane/v3/pkg/s3	0.007s
+ok  	getarcane.dev/arcane/v3/pkg/selfcontainer	0.015s
+ok  	getarcane.dev/arcane/v3/pkg/sqlite	0.009s
+ok  	getarcane.dev/arcane/v3/pkg/startup	6.594s
+ok  	getarcane.dev/arcane/v3/pkg/swarm	0.083s
+ok  	getarcane.dev/arcane/v3/pkg/system	0.039s
+ok  	getarcane.dev/arcane/v3/pkg/timeouts	0.012s
+ok  	getarcane.dev/arcane/v3/pkg/update	0.008s
+ok  	getarcane.dev/arcane/v3/pkg/validation	0.019s
+ok  	getarcane.dev/arcane/v3/pkg/volumes	0.442s
+ok  	getarcane.dev/arcane/v3/pkg/vuln	0.072s
+ok  	getarcane.dev/arcane/v3/pkg/workspace	0.035s
+ok  	getarcane.dev/arcane/v3/pkg/ws	5.492s
+?   	getarcane.dev/arcane/v3/proto/tunnel/v1	[no test files]
+?   	getarcane.dev/arcane/v3/resources	[no test files]

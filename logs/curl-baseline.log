@@ -1,0 +1,18 @@
+===== BASELINE-main env=726c2ee0-fb65-45dd-8e0d-e3efe6377cd5 =====
+[BASELINE-main] ADMIN GET /agents/726c2ee0-fb65-45dd-8e0d-e3efe6377cd5/registries -> HTTP 403 {"success":false,"data":{"error":"You don't have permission to perform this action on this environment"}}
+[BASELINE-main] ADMIN GET /agents/726c2ee0-fb65-45dd-8e0d-e3efe6377cd5/system/health -> HTTP 403 {"success":false,"data":{"error":"You don't have permission to perform this action on this environment"}}
+[BASELINE-main] ADMIN POST /agents/726c2ee0-fb65-45dd-8e0d-e3efe6377cd5/images/updates/check -> HTTP 403 {"success":false,"data":{"error":"You don't have permission to perform this action on this environment"}}
+[BASELINE-main] ADMIN GET /agents/726c2ee0-fb65-45dd-8e0d-e3efe6377cd5/system/docker/info -> HTTP 503 {"success":false,"data":{"error":"Agent is not connected"}}
+[BASELINE-main] ADMIN GET /agents/726c2ee0-fb65-45dd-8e0d-e3efe6377cd5/system/df -> HTTP 503 {"success":false,"data":{"error":"Agent is not connected"}}
+[BASELINE-main] PRIV GET /agents/726c2ee0-fb65-45dd-8e0d-e3efe6377cd5/registries -> HTTP 403 {"success":false,"data":{"error":"You don't have permission to perform this action on this environment"}}
+[BASELINE-main] PRIV GET /agents/726c2ee0-fb65-45dd-8e0d-e3efe6377cd5/system/health -> HTTP 403 {"success":false,"data":{"error":"You don't have permission to perform this action on this environment"}}
+[BASELINE-main] PRIV POST /agents/726c2ee0-fb65-45dd-8e0d-e3efe6377cd5/images/updates/check -> HTTP 403 {"success":false,"data":{"error":"You don't have permission to perform this action on this environment"}}
+[BASELINE-main] PRIV GET /agents/726c2ee0-fb65-45dd-8e0d-e3efe6377cd5/system/docker/info -> HTTP 503 {"success":false,"data":{"error":"Agent is not connected"}}
+[BASELINE-main] PRIV GET /agents/726c2ee0-fb65-45dd-8e0d-e3efe6377cd5/system/df -> HTTP 503 {"success":false,"data":{"error":"Agent is not connected"}}
+[BASELINE-main] UNDER GET /agents/726c2ee0-fb65-45dd-8e0d-e3efe6377cd5/registries -> HTTP 403 {"success":false,"data":{"error":"You don't have permission to perform this action on this environment"}}
+[BASELINE-main] UNDER GET /agents/726c2ee0-fb65-45dd-8e0d-e3efe6377cd5/system/health -> HTTP 403 {"success":false,"data":{"error":"You don't have permission to perform this action on this environment"}}
+[BASELINE-main] UNDER POST /agents/726c2ee0-fb65-45dd-8e0d-e3efe6377cd5/images/updates/check -> HTTP 403 {"success":false,"data":{"error":"You don't have permission to perform this action on this environment"}}
+[BASELINE-main] UNDER GET /agents/726c2ee0-fb65-45dd-8e0d-e3efe6377cd5/system/docker/info -> HTTP 403 {"success":false,"data":{"error":"You don't have permission to perform this action on this environment"}}
+[BASELINE-main] UNDER GET /agents/726c2ee0-fb65-45dd-8e0d-e3efe6377cd5/system/df -> HTTP 403 {"success":false,"data":{"error":"You don't have permission to perform this action on this environment"}}
+[BASELINE-main] ADMIN GET /registries -> HTTP 200 {"$schema":"http://127.0.0.1:3552/api/schemas/PaginatedContainerRegistry.json","data":[],"pagination":{"totalPages":1,"totalItems":0,"currentPage":1,"itemsPerPage":20,"grandTotalItems":0,"hasNextPage":false},"success":true}
+===== end BASELINE-main =====

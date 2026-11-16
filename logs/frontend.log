@@ -1,0 +1,25 @@
+$ vp dev --port 3000 --host
+7:20:58 PM [vite+] (ssr) connected.
+✔ [paraglide-js] Compilation complete (virtual-modules)
+7:21:00 PM [vite+] (client) Forced re-optimization of dependencies
+
+  VITE+ v1.6.0  ready in 2644 ms
+
+  ➜  Local:   http://localhost:3000/
+  ➜  Network: http://172.30.0.2:3000/  enp0s3
+  ➜  press h + enter to show help
+7:21:02 PM [vite+] (client) [optimizer] bundling dependencies...
+200 GET /
+200 GET /login
+304 GET /login
+7:21:50 PM [vite+] (client) [optimizer] bundling dependencies...
+7:21:51 PM [vite+] (client) dependency optimized: temporal-polyfill/global
+7:21:51 PM [vite+] (client) optimized dependencies changed. reloading
+304 GET /login
+200 GET /
+7:23:03 PM [vite+] (client) [console.error] Token refresh failed: HTTPError: Invalid or expired refresh token
+    at APIClient.performRequest (http://127.0.0.1:3000/src/lib/services/api-service.ts:284:9)
+    at async AuthService.handleResponse (http://127.0.0.1:3000/src/lib/services/api-service.ts:342:20)
+    at async AuthService.requestTokenRefresh (http://127.0.0.1:3000/src/lib/services/auth-service.ts:125:20)
+200 GET /login?redirect=%2F
+200 GET /images/registries

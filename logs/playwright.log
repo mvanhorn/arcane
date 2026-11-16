@@ -1,0 +1,79 @@
+HTTP 200 GET http://127.0.0.1:3000/api/auth/autologin
+HTTP 200 POST http://127.0.0.1:3000/api/auth/autologin
+HTTP 200 GET http://127.0.0.1:3000/api/agents/0/settings/public
+HTTP 200 GET http://127.0.0.1:3000/api/agents/0,726c2ee0-fb65-45dd-8e0d-e3efe6377cd5/settings/public
+HTTP 200 GET http://127.0.0.1:3000/api/agents/0,726c2ee0-fb65-45dd-8e0d-e3efe6377cd5/podman/status
+HTTP 200 GET http://127.0.0.1:3000/api/agents/0,726c2ee0-fb65-45dd-8e0d-e3efe6377cd5/swarm/status
+HTTP 200 GET http://127.0.0.1:3000/api/agents/0,726c2ee0-fb65-45dd-8e0d-e3efe6377cd5/containers/counts
+HTTP 200 GET http://127.0.0.1:3000/api/agents/0,726c2ee0-fb65-45dd-8e0d-e3efe6377cd5/projects/counts
+HTTP 200 GET http://127.0.0.1:3000/api/agents/0,726c2ee0-fb65-45dd-8e0d-e3efe6377cd5/vulnerabilities/summary
+HTTP 200 GET http://127.0.0.1:3000/api/agents/0,726c2ee0-fb65-45dd-8e0d-e3efe6377cd5/images/counts
+HTTP 200 GET http://127.0.0.1:3000/api/agents/726c2ee0-fb65-45dd-8e0d-e3efe6377cd5/version
+HTTP 200 GET http://127.0.0.1:3000/api/agents/0,726c2ee0-fb65-45dd-8e0d-e3efe6377cd5/podman/status
+HTTP 200 GET http://127.0.0.1:3000/api/agents/0,726c2ee0-fb65-45dd-8e0d-e3efe6377cd5/vulnerabilities/overview
+HTTP 200 GET http://127.0.0.1:3000/api/agents/0,726c2ee0-fb65-45dd-8e0d-e3efe6377cd5/version
+HTTP 200 GET http://127.0.0.1:3000/api/agents/0,726c2ee0-fb65-45dd-8e0d-e3efe6377cd5/events?type=container.oom%2Ccontainer.die&type=container.start%2Ccontainer.restart&limit=50
+HTTP 200 GET http://127.0.0.1:3000/api/agents/0,726c2ee0-fb65-45dd-8e0d-e3efe6377cd5/containers?start=0&limit=5&sort=memoryUsage&order=desc
+HTTP 200 GET http://127.0.0.1:3000/api/agents/0,726c2ee0-fb65-45dd-8e0d-e3efe6377cd5/jobs
+HTTP 200 GET http://127.0.0.1:3000/api/agents/0,726c2ee0-fb65-45dd-8e0d-e3efe6377cd5/system/df
+HTTP 200 GET http://127.0.0.1:3000/api/agents/0,726c2ee0-fb65-45dd-8e0d-e3efe6377cd5/activities?start=0&limit=50
+HOME_URL http://127.0.0.1:3000/dashboard
+HTTP 200 GET http://127.0.0.1:3000/api/auth/autologin
+HTTP 200 GET http://127.0.0.1:3000/api/agents/0/settings/public
+HTTP 200 GET http://127.0.0.1:3000/api/agents/0/settings
+HTTP 200 GET http://127.0.0.1:3000/api/agents/0,726c2ee0-fb65-45dd-8e0d-e3efe6377cd5/settings/public
+HTTP 200 GET http://127.0.0.1:3000/api/agents/0,726c2ee0-fb65-45dd-8e0d-e3efe6377cd5/podman/status
+HTTP 200 GET http://127.0.0.1:3000/api/agents/0,726c2ee0-fb65-45dd-8e0d-e3efe6377cd5/swarm/status
+HTTP 200 GET http://127.0.0.1:3000/api/registries?start=0&limit=20&sort=url&order=asc
+HTTP 200 GET http://127.0.0.1:3000/api/registries/usage
+HTTP 200 GET http://127.0.0.1:3000/api/agents/726c2ee0-fb65-45dd-8e0d-e3efe6377cd5/version
+HTTP 200 GET http://127.0.0.1:3000/api/agents/0,726c2ee0-fb65-45dd-8e0d-e3efe6377cd5/activities?start=0&limit=50
+REG_URL http://127.0.0.1:3000/images/registries
+REG_TEXT Overview
+Dashboard
+Updates
+Security
+Event Log
+Deploy
+Projects
+Git Syncs
+Resources
+Containers
+Images
+Builds
+Registries
+Networks
+Volumes
+Administration
+Agents
+Settings
+System
+dev
+A
+Arcane Admin
+Unpin sidebar
+Registries
+Add Registry
+Registry Information
+
+Configure access credentials for private Docker registries and container repositories
+
+View
+	
+Registry URL
+	
+Username/Key
+	
+Description
+	
+Status
+	
+Pull Usage
+	
+Created
+	
+
+No container registries
+Add a registry to pull private images with stored credentials.
+Add Registry
+VIDEO /tmp/arcane-live/playwright-video/page@e4ae3cdf79dba92a37d27ee91b3add63.webm
