@@ -163,6 +163,25 @@ func TestPermissionMatcherActionPermissions(t *testing.T) {
 		require.Equal(t, "containers:list", perm)
 	})
 
+	t.Run("shared action permission maps without query", func(t *testing.T) {
+		m := NewPermissionMatcher()
+		m.AddActions("POST", "/images/updates/check", "action", map[string]string{
+			"all":   "image-updates:check",
+			"batch": "image-updates:check",
+		})
+
+		perm, ok := m.Lookup("POST", "/images/updates/check", nil).Get()
+		require.True(t, ok)
+		require.Equal(t, "image-updates:check", perm)
+
+		perm, ok = m.Lookup("POST", "/images/updates/check", url.Values{"action": {"all"}}).Get()
+		require.True(t, ok)
+		require.Equal(t, "image-updates:check", perm)
+
+		_, ok = m.Lookup("POST", "/images/updates/check", url.Values{"action": {"explode"}}).Get()
+		require.False(t, ok, "unknown action must deny")
+	})
+
 	t.Run("collected from huma", func(t *testing.T) {
 		_, api := humatest.New(t)
 		huma.Register(api, huma.Operation{

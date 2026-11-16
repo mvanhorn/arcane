@@ -1,6 +1,7 @@
 package imageupdate
 
 import (
+	"cmp"
 	"context"
 	"errors"
 	"strings"
@@ -35,7 +36,7 @@ type (
 	CheckImagesActionInput struct {
 		Body          *types.BatchImageUpdateRequest `required:"false"`
 		EnvironmentID string                         `path:"id" doc:"Environment ID"`
-		Action        string                         `query:"action" required:"true" enum:"all,batch" doc:"Check every local image or only the listed image references"`
+		Action        string                         `query:"action" doc:"Check every local image or only the listed image references. Defaults to all."`
 	}
 
 	GetUpdateInfoByRefsInput struct {
@@ -86,13 +87,17 @@ func (h *ImageUpdateHandler) CheckImageUpdateByID(ctx context.Context, input *Ch
 }
 
 func (h *ImageUpdateHandler) CheckImages(ctx context.Context, input *CheckImagesActionInput) (*handlerutil.Out[types.ImageUpdateBatchResponse], error) {
-	if input.Action == "batch" && len(kit.FromPtr(input.Body).ImageRefs) == 0 {
+	action := cmp.Or(input.Action, "all")
+	if action != "all" && action != "batch" {
+		return nil, huma.Error400BadRequest("invalid action: " + action)
+	}
+	if action == "batch" && len(kit.FromPtr(input.Body).ImageRefs) == 0 {
 		return nil, huma.Error400BadRequest("imageRefs is required for action=batch")
 	}
 
 	runtimeCtx := activity.ActivityRuntimeContext(ctx, h.appCtx)
 	results, err := h.imageUpdateService.CheckImages(runtimeCtx, types.ImageUpdateCheckRequest{
-		All:       input.Action == "all",
+		All:       action == "all",
 		ImageRefs: kit.FromPtr(input.Body).ImageRefs,
 	}, kit.FromPtr(input.Body).Credentials)
 	if err != nil {

@@ -17,6 +17,7 @@ var (
 		{Method: http.MethodGet, PathPattern: "/api/app/version", CommandName: "system.version"},
 		{Method: http.MethodGet, PathPattern: "/api/swarm/identity", CommandName: "swarm.node_identity"},
 		{Method: http.MethodPost, PathPattern: "/api/registries/sync", CommandName: "container_registry.sync"},
+		{Method: http.MethodGet, PathPattern: "/api/agents/{id}/registries", CommandName: "container_registry.list"},
 		{Method: http.MethodPost, PathPattern: "/api/git/repositories/sync", CommandName: "git_repository.sync"},
 		{Method: http.MethodPost, PathPattern: "/api/backups/s3/sync", CommandName: "s3_destination.sync"},
 		{Method: http.MethodGet, PathPattern: "/api/backups/s3/{id}/usage", CommandName: "s3_destination.in_use"},
@@ -195,6 +196,7 @@ var (
 		{Method: http.MethodPost, PathPattern: "/api/agents/{id}/updater/projects/{projectId}/check", CommandName: "updater.project.check"},
 
 		{Method: http.MethodHead, PathPattern: "/api/agents/{id}/system/health", CommandName: "system.health"},
+		{Method: http.MethodGet, PathPattern: "/api/agents/{id}/system/health", CommandName: "system.health"},
 		{Method: http.MethodGet, PathPattern: "/api/agents/{id}/system/docker/info", CommandName: "system.docker_info"},
 		{Method: http.MethodGet, PathPattern: "/api/agents/{id}/system/df", CommandName: "system.df"},
 		{Method: http.MethodPost, PathPattern: "/api/agents/{id}/system/prune", CommandName: "system.prune"},

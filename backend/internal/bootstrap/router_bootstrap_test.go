@@ -6,6 +6,7 @@ import (
 	"net"
 	"net/http"
 	"net/http/httptest"
+	"net/url"
 	"slices"
 	"strings"
 	"testing"
@@ -248,6 +249,55 @@ func TestProxiedEnvironmentRoutesAreAgentRoutable(t *testing.T) {
 	slices.Sort(missing)
 	assert.Empty(t, slices.Compact(missing),
 		"proxied environment routes missing from the agent command allowlist; add them to pkg/agent/commands.go or classify them in middleware.IsManagerLocalPath")
+}
+
+func TestProxiedEnvironmentRoutesHavePermissionMappings(t *testing.T) {
+	humaAPI := api.SetupAPIForSpec()
+	matcher := authz.NewPermissionMatcher()
+	matcher.CollectFromHumaAPI(humaAPI)
+
+	operations := func(item *huma.PathItem) map[string]*huma.Operation {
+		return map[string]*huma.Operation{
+			http.MethodGet: item.Get, http.MethodPost: item.Post, http.MethodPut: item.Put,
+			http.MethodDelete: item.Delete, http.MethodPatch: item.Patch, http.MethodHead: item.Head,
+		}
+	}
+
+	var missing []string
+	for path, item := range humaAPI.OpenAPI().Paths {
+		suffix, ok := strings.CutPrefix(path, "/agents/{id}")
+		if !ok || suffix == "" || strings.HasPrefix(path, "/agents/{id}/uploads/{kind}") {
+			continue
+		}
+		for method, op := range operations(item) {
+			if op == nil || middleware.IsManagerLocalPath(method, suffix) {
+				continue
+			}
+			if op.Security != nil && len(op.Security) == 0 {
+				perm, found := matcher.Lookup(method, suffix, nil).Get()
+				if !found || perm != "" {
+					missing = append(missing, method+" "+path)
+				}
+				continue
+			}
+			if param, hasParam := op.Metadata[authz.MetaActionParam].(string); hasParam {
+				perms, _ := op.Metadata[authz.MetaActionPermissions].(map[string]string)
+				for value := range perms {
+					if _, found := matcher.Lookup(method, suffix, url.Values{param: {value}}).Get(); !found {
+						missing = append(missing, method+" "+path+"?"+param+"="+value)
+					}
+				}
+				continue
+			}
+			if _, found := matcher.Lookup(method, suffix, nil).Get(); !found {
+				missing = append(missing, method+" "+path)
+			}
+		}
+	}
+
+	slices.Sort(missing)
+	assert.Empty(t, slices.Compact(missing),
+		"proxied environment routes missing from the permission matcher; register them with middleware.RegisterWithPermission")
 }
 
 func TestEveryAPIRouteIsInPermissionExport(t *testing.T) {

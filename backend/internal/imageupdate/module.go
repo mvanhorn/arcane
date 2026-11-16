@@ -82,17 +82,14 @@ func RegisterImageUpdates(
 		Security:    handlerutil.DefaultOperationSecurity(),
 	}, authz.PermImageUpdatesCheck, h.CheckImageUpdateByID)
 
-	middleware.RegisterWithActionPermissions(api, huma.Operation{
+	middleware.RegisterWithPermission(api, huma.Operation{
 		OperationID: "check-images",
 		Method:      http.MethodPost,
 		Path:        "/agents/{id}/images/updates/check",
 		Summary:     "Check all or multiple images",
 		Tags:        []string{"Image Updates"},
 		Security:    handlerutil.DefaultOperationSecurity(),
-	}, "action", map[string]string{
-		"all":   authz.PermImageUpdatesCheck,
-		"batch": authz.PermImageUpdatesCheck,
-	}, h.CheckImages)
+	}, authz.PermImageUpdatesCheck, h.CheckImages)
 
 	middleware.RegisterWithPermission(api, huma.Operation{
 		OperationID: "get-update-info-by-refs",

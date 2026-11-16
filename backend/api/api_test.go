@@ -407,6 +407,29 @@ func TestEasyJoinRoutesDeclareSwarmJoinPermission(t *testing.T) {
 	}
 }
 
+func TestAgentProxyIssueRoutesHavePermissionMappings(t *testing.T) {
+	matcher := authz.NewPermissionMatcher()
+	matcher.CollectFromHumaAPI(SetupAPIForSpec())
+
+	tests := []struct {
+		method string
+		suffix string
+		perm   string
+	}{
+		{method: http.MethodGet, suffix: "/registries", perm: authz.PermRegistriesList},
+		{method: http.MethodGet, suffix: "/system/health", perm: authz.PermSystemRead},
+		{method: http.MethodHead, suffix: "/system/health", perm: authz.PermSystemRead},
+		{method: http.MethodPost, suffix: "/images/updates/check", perm: authz.PermImageUpdatesCheck},
+	}
+	for _, tt := range tests {
+		t.Run(tt.method+" "+tt.suffix, func(t *testing.T) {
+			perm, found := matcher.Lookup(tt.method, tt.suffix, nil).Get()
+			require.True(t, found)
+			require.Equal(t, tt.perm, perm)
+		})
+	}
+}
+
 func TestEnvScopedOperationsDeclarePermission(t *testing.T) {
 	api := SetupAPIForSpec()
 	oapi := api.OpenAPI()

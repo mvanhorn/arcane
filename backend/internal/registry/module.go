@@ -63,6 +63,16 @@ func RegisterContainerRegistries(api huma.API, h *ContainerRegistryHandler) {
 	}, authz.PermRegistriesList, h.ListRegistries)
 
 	middleware.RegisterWithPermission(api, huma.Operation{
+		OperationID: "listEnvironmentContainerRegistries",
+		Method:      "GET",
+		Path:        "/agents/{id}/registries",
+		Summary:     "List container registries",
+		Description: "Get a paginated list of container registries for an environment",
+		Tags:        []string{"Container Registries"},
+		Security:    handlerutil.DefaultOperationSecurity(),
+	}, authz.PermRegistriesList, h.ListEnvironmentRegistries)
+
+	middleware.RegisterWithPermission(api, huma.Operation{
 		OperationID: "createContainerRegistry",
 		Method:      "POST",
 		Path:        "/registries",

@@ -64,6 +64,17 @@ func RegisterSystem(api huma.API, h *SystemHandler) {
 	}, authz.PermSystemRead, h.Health)
 
 	middleware.RegisterWithPermission(api, huma.Operation{
+		OperationID:   "get-system-health",
+		Method:        http.MethodGet,
+		Path:          "/agents/{id}/system/health",
+		Summary:       "Check system health",
+		Description:   "Check if the Docker daemon is responsive",
+		Tags:          []string{"System"},
+		DefaultStatus: http.StatusOK,
+		Security:      handlerutil.DefaultOperationSecurity(),
+	}, authz.PermSystemRead, h.Health)
+
+	middleware.RegisterWithPermission(api, huma.Operation{
 		OperationID: "get-docker-info",
 		Method:      http.MethodGet,
 		Path:        "/agents/{id}/system/docker/info",

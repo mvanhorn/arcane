@@ -100,6 +100,8 @@ func TestResolveCommandName(t *testing.T) {
 		{name: "activity cancel", method: "POST", path: "/api/agents/0/activities/activity-1?action=cancel", command: "activity.action", shouldHit: true},
 		{name: "activity history clear", method: "DELETE", path: "/api/agents/0/activities/history", command: "activity.history.clear", shouldHit: true},
 		{name: "health", method: "HEAD", path: "/api/agents/0/system/health", command: "system.health", shouldHit: true},
+		{name: "health get", method: "GET", path: "/api/agents/0/system/health", command: "system.health", shouldHit: true},
+		{name: "registries list", method: "GET", path: "/api/agents/0/registries", command: "container_registry.list", shouldHit: true},
 		{name: "swarm node identity", method: "GET", path: "/api/swarm/identity", command: "swarm.node_identity", shouldHit: true},
 		{name: "ports list", method: "GET", path: "/api/agents/0/ports?limit=20", command: "port.list", shouldHit: true},
 		{name: "network topology", method: "GET", path: "/api/agents/0/networks/topology", command: "network.topology", shouldHit: true},

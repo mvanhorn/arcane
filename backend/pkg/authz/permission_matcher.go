@@ -87,11 +87,31 @@ func (m *PermissionMatcher) Lookup(method, suffixPath string, query url.Values) 
 	if best.actionParam == "" {
 		return mo.Some(best.perm)
 	}
-	perm, ok := best.actionPerms[query.Get(best.actionParam)]
-	if !ok {
+	value := query.Get(best.actionParam)
+	if perm, ok := best.actionPerms[value]; ok {
+		return mo.Some(perm)
+	}
+	if value != "" {
 		return mo.None[string]()
 	}
-	return mo.Some(perm)
+	if shared, ok := sharedActionPermission(best.actionPerms); ok {
+		return mo.Some(shared)
+	}
+	return mo.None[string]()
+}
+
+func sharedActionPermission(perms map[string]string) (string, bool) {
+	var shared string
+	for _, perm := range perms {
+		if shared == "" {
+			shared = perm
+			continue
+		}
+		if perm != shared {
+			return "", false
+		}
+	}
+	return shared, shared != ""
 }
 
 func (m *PermissionMatcher) SupportsEnvironmentAggregation(method, suffix string) bool {

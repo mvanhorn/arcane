@@ -616,6 +616,49 @@ func TestProxyPermissionDeniedDefaultDeniesUnmappedRoute(t *testing.T) {
 		"expected an unmapped proxied route to be denied by default")
 }
 
+func TestProxyPermissionDeniedAgentProxyIssueRoutes(t *testing.T) {
+	matcher := authz.NewPermissionMatcher()
+	matcher.Add(http.MethodGet, "/registries", authz.PermRegistriesList)
+	matcher.Add(http.MethodGet, "/system/health", authz.PermSystemRead)
+	matcher.Add(http.MethodPost, "/images/updates/check", authz.PermImageUpdatesCheck)
+	m := newProxyAuthzMiddleware(matcher)
+
+	tests := []struct {
+		name   string
+		method string
+		suffix string
+		perm   string
+		global bool
+	}{
+		{name: "registries", method: http.MethodGet, suffix: "/registries", perm: authz.PermRegistriesList, global: true},
+		{name: "system health", method: http.MethodGet, suffix: "/system/health", perm: authz.PermSystemRead},
+		{name: "image update check", method: http.MethodPost, suffix: "/images/updates/check", perm: authz.PermImageUpdatesCheck},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			c := newProxyRequestContext(tt.method, "/api/agents/"+proxyTestEnvID+tt.suffix)
+
+			allowed := authz.NewPermissionSet()
+			if tt.global {
+				allowed.AddGlobal(tt.perm)
+			} else {
+				allowed.AddEnv(proxyTestEnvID, tt.perm)
+			}
+			require.True(t, m.proxyPermitted(c, allowed, proxyTestEnvID, tt.suffix),
+				"expected the mapped route to be allowed with %s", tt.perm)
+
+			require.False(t, m.proxyPermitted(c, authz.NewPermissionSet(), proxyTestEnvID, tt.suffix),
+				"expected the mapped route to be denied without %s", tt.perm)
+
+			otherEnv := authz.NewPermissionSet()
+			otherEnv.AddEnv("other-env", tt.perm)
+			require.False(t, m.proxyPermitted(c, otherEnv, proxyTestEnvID, tt.suffix),
+				"expected the mapped route to be denied when %s is scoped to another environment", tt.perm)
+		})
+	}
+}
+
 func TestProxyPermissionDeniedAllowsPublicRoute(t *testing.T) {
 	m := newProxyAuthzMiddleware(containerMatcher())
 	ps := authz.NewPermissionSet()

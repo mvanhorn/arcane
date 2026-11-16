@@ -21,12 +21,21 @@ type (
 		syncRemoteRegistries func(context.Context)
 	}
 
-	ListContainerRegistriesInput struct {
+	registryListQuery struct {
 		Search string `query:"search" doc:"Search query"`
 		Sort   string `query:"sort" doc:"Column to sort by"`
 		Order  string `query:"order" default:"asc" doc:"Sort direction"`
 		Start  int    `query:"start" default:"0" doc:"Start index"`
 		Limit  int    `query:"limit" default:"20" doc:"Items per page"`
+	}
+
+	ListContainerRegistriesInput struct {
+		registryListQuery
+	}
+
+	ListEnvironmentContainerRegistriesInput struct {
+		types.EnvironmentInput
+		registryListQuery
 	}
 
 	CreateContainerRegistryInput struct {
@@ -61,7 +70,15 @@ func NewHandler(registryService *ContainerRegistryService, syncRemoteRegistries 
 }
 
 func (h *ContainerRegistryHandler) ListRegistries(ctx context.Context, input *ListContainerRegistriesInput) (*handlerutil.Page[types.ContainerRegistry], error) {
-	registries, paginationResp, err := h.registryService.GetRegistriesPaginated(ctx, handlerutil.PaginationParams(input.Start, input.Limit, input.Sort, input.Order, input.Search))
+	return h.listRegistries(ctx, input.registryListQuery)
+}
+
+func (h *ContainerRegistryHandler) ListEnvironmentRegistries(ctx context.Context, input *ListEnvironmentContainerRegistriesInput) (*handlerutil.Page[types.ContainerRegistry], error) {
+	return h.listRegistries(ctx, input.registryListQuery)
+}
+
+func (h *ContainerRegistryHandler) listRegistries(ctx context.Context, query registryListQuery) (*handlerutil.Page[types.ContainerRegistry], error) {
+	registries, paginationResp, err := h.registryService.GetRegistriesPaginated(ctx, handlerutil.PaginationParams(query.Start, query.Limit, query.Sort, query.Order, query.Search))
 	if err != nil {
 		return nil, huma.Error500InternalServerError("Failed to list registries: " + err.Error())
 	}
