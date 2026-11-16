@@ -1,0 +1,110 @@
+# Commands and results for KEV feed fallback (#4823)
+# Working tree: feat/kev-feed-fallback from upstream/main 693a5f39a
+# Docker: not installed; /var/run/docker.sock missing. Live run used go run + vp, not just dev docker.
+
+$ gh issue view 4823 -R getarcaneapp/arcane
+# OPEN, unassigned, no comments
+
+$ gh pr list -R getarcaneapp/arcane --state all --search "KEV"
+$ gh pr list -R getarcaneapp/arcane --state all --search "4823"
+# no equivalent open PR
+
+$ just format go
+# golangci-lint fmt on backend, cli, types
+# exit 0
+
+$ just lint backend
+cd backend && golangci-lint run -c ../.golangci.yml ./...
+0 issues.
+# exit 0
+
+$ just lint types
+0 issues.
+# exit 0
+
+$ just lint cli
+0 issues.
+# exit 0
+
+$ just format all
+# golangci-lint fmt + vp fmt .
+# Finished in 8926ms on 1355 files using 4 threads.
+# exit 0
+
+$ just lint all
+vp -C frontend run check
+svelte-check found 0 errors and 0 warnings
+vp -C frontend run lint
+vp -C tests run check
+vp lint .
+just lint backend / cli / types: 0 issues
+buf lint: exit 0
+# exit 0
+
+# Baseline on untouched upstream/main 693a5f39a in /tmp/arcane-baseline
+$ just test backend
+# --- PASS: 2195
+# --- FAIL: 0
+# --- SKIP: 1
+# ok packages: 130
+# EXIT:0
+
+# Same suite on feat/kev-feed-fallback
+$ just test backend
+# --- PASS: 2201
+# --- FAIL: 0
+# --- SKIP: 1
+# ok packages: 131
+# exit 0
+
+$ go test ./internal/vulnerability/children/store/ -count=1 -run TestSyncKEV
+ok  	getarcane.dev/arcane/v3/internal/vulnerability/children/store	0.023s
+# exit 0
+
+$ go test ./internal/config/ -count=1 -run TestConfig_ValidateKevFeedURLs
+ok  	getarcane.dev/arcane/v3/internal/config	0.005s
+# exit 0
+
+$ cd backend && go build -tags=exclude_frontend ./...
+# exit 0
+
+$ cd cli && go build ./...
+# exit 0
+
+# Live (ARCANE_ENVIRONMENT=development)
+# ARCANE_KEV_FEED_URLS=http://127.0.0.1:8765/cisa,http://127.0.0.1:8765/mirror
+# mock: /cisa always 403; /mirror 200 or 503 from mode file
+# backend: go run -tags=exclude_frontend ./cmd  (127.0.0.1:3552)
+# frontend: vp run dev --port 3000  (127.0.0.1:3000)
+# Docker connection failed during init (no docker.sock); HTTP server started.
+
+$ curl -sS -o /tmp/health.json -w "health:%{http_code}\n" http://127.0.0.1:3552/api/health
+health:200
+
+$ curl -sS -X POST http://127.0.0.1:3552/api/auth/login -H 'Content-Type: application/json' -d '{"username":"arcane","password":"..."}'
+login:200
+
+# mirror-mode=ok
+$ curl -sS -X POST 'http://127.0.0.1:3552/api/agents/0/jobs/vulnerability-risk?action=run' \
+  -H "Authorization: Bearer $TOKEN" -H 'Content-Type: application/json' \
+  -d '{"runId":"42aedcf8-b178-46c4-8271-bafc18abf732"}'
+job-success:202
+# run status: succeeded
+# mock: GET /cisa 403; GET /mirror 200
+# logs:
+# WRN KEV catalog source failed  source=http://127.0.0.1:8765/cisa  error="HTTP 403"
+# INF KEV catalog synced         source=http://127.0.0.1:8765/mirror
+
+# mirror-mode=fail
+$ curl -sS -X POST 'http://127.0.0.1:3552/api/agents/0/jobs/vulnerability-risk?action=run' \
+  -H "Authorization: Bearer $TOKEN" -H 'Content-Type: application/json' \
+  -d '{"runId":"a7f2141c-825e-418d-ae1c-8115a69f5694"}'
+job-fail:202
+# run status: partial
+# outcome.message: Threat intelligence sync failed: KEV catalog failed: http://127.0.0.1:8765/cisa (HTTP 403); http://127.0.0.1:8765/mirror (HTTP 503)
+# Activity Center job_run status failed with the same message
+
+# Playwright recordVideo against http://127.0.0.1:3000 Activity Center:
+# fail job -> Partial + HTTP 403/503 detail; success job -> Succeeded
+# out.mp4: concat of xfce4-terminal capture (tests + live log grep) and Playwright video
+# preview.gif derived from out.mp4

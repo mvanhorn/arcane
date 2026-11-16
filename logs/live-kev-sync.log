@@ -1,0 +1,23 @@
+Nov 16 19:24:04.776 WRN KEV catalog source failed source=http://127.0.0.1:8765/cisa error="HTTP 403"
+Nov 16 19:24:04.778 INF KEV catalog synced source=http://127.0.0.1:8765/mirror
+Nov 16 19:24:18.321 WRN KEV catalog source failed source=http://127.0.0.1:8765/cisa error="HTTP 403"
+Nov 16 19:24:18.323 WRN KEV catalog source failed source=http://127.0.0.1:8765/mirror error="HTTP 503"
+Nov 16 19:24:18.324 WRN threat intel sync failed error="KEV catalog failed: http://127.0.0.1:8765/cisa (HTTP 403); http://127.0.0.1:8765/mirror (HTTP 503)"
+Nov 16 19:26:16.192 WRN KEV catalog source failed source=http://127.0.0.1:8765/cisa error="HTTP 403"
+Nov 16 19:26:16.196 INF KEV catalog synced source=http://127.0.0.1:8765/mirror
+Nov 16 19:29:10.972 WRN KEV catalog source failed source=http://127.0.0.1:8765/cisa error="HTTP 403"
+Nov 16 19:29:10.973 WRN KEV catalog source failed source=http://127.0.0.1:8765/mirror error="HTTP 503"
+Nov 16 19:29:10.973 WRN threat intel sync failed error="KEV catalog failed: http://127.0.0.1:8765/cisa (HTTP 403); http://127.0.0.1:8765/mirror (HTTP 503)"
+Nov 16 19:30:03.548 WRN KEV catalog source failed source=http://127.0.0.1:8765/cisa error="HTTP 403"
+Nov 16 19:30:03.550 WRN KEV catalog source failed source=http://127.0.0.1:8765/mirror error="HTTP 503"
+Nov 16 19:30:03.551 WRN threat intel sync failed error="KEV catalog failed: http://127.0.0.1:8765/cisa (HTTP 403); http://127.0.0.1:8765/mirror (HTTP 503)"
+Nov 16 19:30:30.428 WRN KEV catalog source failed source=http://127.0.0.1:8765/cisa error="HTTP 403"
+Nov 16 19:30:30.429 WRN KEV catalog source failed source=http://127.0.0.1:8765/mirror error="HTTP 503"
+Nov 16 19:30:30.429 WRN threat intel sync failed error="KEV catalog failed: http://127.0.0.1:8765/cisa (HTTP 403); http://127.0.0.1:8765/mirror (HTTP 503)"
+Nov 16 19:30:36.795 WRN KEV catalog source failed source=http://127.0.0.1:8765/cisa error="HTTP 403"
+Nov 16 19:30:36.797 INF KEV catalog synced source=http://127.0.0.1:8765/mirror
+Nov 16 19:31:09.045 WRN KEV catalog source failed source=http://127.0.0.1:8765/cisa error="HTTP 403"
+Nov 16 19:31:09.045 WRN KEV catalog source failed source=http://127.0.0.1:8765/mirror error="HTTP 503"
+Nov 16 19:31:09.046 WRN threat intel sync failed error="KEV catalog failed: http://127.0.0.1:8765/cisa (HTTP 403); http://127.0.0.1:8765/mirror (HTTP 503)"
+Nov 16 19:31:15.359 WRN KEV catalog source failed source=http://127.0.0.1:8765/cisa error="HTTP 403"
+Nov 16 19:31:15.360 INF KEV catalog synced source=http://127.0.0.1:8765/mirror
