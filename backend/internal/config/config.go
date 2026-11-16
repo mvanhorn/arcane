@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"log/slog"
 	"net"
+	"net/url"
 	"os"
 	"reflect"
 	"slices"
@@ -49,12 +50,14 @@ type (
 		DefaultAdminUsername string `env:"ARCANE_DEFAULT_ADMIN_USERNAME" default:"arcane"`
 		DefaultAdminPassword string `env:"ARCANE_DEFAULT_ADMIN_PASSWORD" default:"" options:"file"`
 
-		PUID                string `env:"PUID" default:""`
-		PGID                string `env:"PGID" default:""`
-		DockerConfig        string `env:"DOCKER_CONFIG" default:""`
-		LogLevel            string `env:"ARCANE_LOG_LEVEL" default:"info" options:"toLower"`
-		AgentToken          string `env:"ARCANE_AGENT_TOKEN" default:"" options:"file"`
-		ManagerApiUrl       string `env:"ARCANE_MANAGER_API_URL" default:""`
+		PUID          string `env:"PUID" default:""`
+		PGID          string `env:"PGID" default:""`
+		DockerConfig  string `env:"DOCKER_CONFIG" default:""`
+		LogLevel      string `env:"ARCANE_LOG_LEVEL" default:"info" options:"toLower"`
+		AgentToken    string `env:"ARCANE_AGENT_TOKEN" default:"" options:"file"`
+		ManagerApiUrl string `env:"ARCANE_MANAGER_API_URL" default:""`
+		// Comma-separated HTTPS KEV catalog URLs, tried in order. Empty uses the CISA feed then the CISA GitHub mirror.
+		KevFeedURLs         string `env:"ARCANE_KEV_FEED_URLS" default:""`
 		AgentTransport      string `env:"ARCANE_AGENT_TRANSPORT" default:"auto" options:"toLower"`
 		AgentMTLSMode       string `env:"ARCANE_AGENT_MTLS_MODE" default:"disabled" options:"toLower"`
 		AgentMTLSCAFile     string `env:"ARCANE_AGENT_MTLS_CA_FILE" default:""`
@@ -317,7 +320,48 @@ func (c *Config) Validate() error {
 	if !slices.Contains([]string{agent.TransportAuto, agent.TransportGRPC, agent.TransportWebSocket}, c.AgentTransport) {
 		return fmt.Errorf("unsupported ARCANE_AGENT_TRANSPORT %q: use auto, grpc, or websocket", c.AgentTransport)
 	}
+	return validateKevFeedURLs(c.KevFeedURLs, c.Environment)
+}
+
+func validateKevFeedURLs(raw string, env AppEnvironment) error {
+	urls := kit.TrimNonEmpty(strings.Split(raw, ","))
+	if strings.TrimSpace(raw) != "" && len(urls) == 0 {
+		return errors.New("ARCANE_KEV_FEED_URLS must contain at least one URL")
+	}
+	for _, source := range urls {
+		if err := validateKevFeedURL(source, env); err != nil {
+			return err
+		}
+	}
 	return nil
+}
+
+func validateKevFeedURL(raw string, env AppEnvironment) error {
+	parsed, err := url.Parse(raw)
+	if err != nil {
+		return fmt.Errorf("invalid ARCANE_KEV_FEED_URLS entry %q: %w", raw, err)
+	}
+	if parsed.Host == "" {
+		return fmt.Errorf("invalid ARCANE_KEV_FEED_URLS entry %q: URL must include a host", raw)
+	}
+	if parsed.Scheme == "https" {
+		return nil
+	}
+	if parsed.Scheme == "http" && kevHTTPOverrideAllowed(parsed.Hostname(), env) {
+		return nil
+	}
+	return fmt.Errorf("ARCANE_KEV_FEED_URLS entry %q must use https", raw)
+}
+
+func kevHTTPOverrideAllowed(host string, env AppEnvironment) bool {
+	if env == AppEnvironmentDevelopment || env == AppEnvironmentTest {
+		return true
+	}
+	if strings.EqualFold(host, "localhost") {
+		return true
+	}
+	ip := net.ParseIP(host)
+	return ip != nil && ip.IsLoopback()
 }
 
 func DirectAgentRequested(getenv func(string) string) bool {

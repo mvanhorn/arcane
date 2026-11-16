@@ -49,6 +49,7 @@ var (
 		"ARCANE_GIT_WORK_DIR",
 		"ARCANE_IN_CONTAINER",
 		"ARCANE_JWT_REFRESH_EXPIRY",
+		"ARCANE_KEV_FEED_URLS",
 		"ARCANE_LISTEN",
 		"ARCANE_LOG_JSON",
 		"ARCANE_LOG_LEVEL",
@@ -264,6 +265,13 @@ func TestGenerate_EnvConfigIncludesTaggedFields(t *testing.T) {
 	assert.Equal(t, "string", dockerConfig.Type)
 	assert.Empty(t, dockerConfig.DefaultValue)
 	assert.Equal(t, "config.Config", dockerConfig.Source)
+
+	kevFeedURLs, ok := entries["ARCANE_KEV_FEED_URLS"]
+	require.True(t, ok)
+	assert.Equal(t, "KevFeedURLs", kevFeedURLs.Field)
+	assert.Equal(t, "string", kevFeedURLs.Type)
+	assert.Empty(t, kevFeedURLs.DefaultValue)
+	assert.Contains(t, kevFeedURLs.Description, "CISA GitHub mirror")
 
 	buildableUsername, ok := entries["ARCANE_AUTO_LOGIN_USERNAME"]
 	require.True(t, ok)

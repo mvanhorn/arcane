@@ -289,6 +289,47 @@ func TestConfig_ValidateRequiresAgentManagerAndToken(t *testing.T) {
 	require.NoError(t, mustLoad(t).Validate())
 }
 
+func TestConfig_ValidateKevFeedURLs(t *testing.T) {
+	t.Setenv("ARCANE_AGENT", "")
+	t.Setenv("ARCANE_AGENT_MODE", "")
+	t.Setenv("AGENT_MODE", "")
+	t.Setenv("ARCANE_ENVIRONMENT", "production")
+
+	t.Run("empty uses defaults", func(t *testing.T) {
+		t.Setenv("ARCANE_KEV_FEED_URLS", "")
+		cfg := mustLoad(t)
+		assert.Empty(t, cfg.KevFeedURLs)
+		require.NoError(t, cfg.Validate())
+	})
+
+	t.Run("https list is accepted", func(t *testing.T) {
+		t.Setenv("ARCANE_KEV_FEED_URLS", "https://www.cisa.gov/kev.json, https://raw.githubusercontent.com/cisagov/kev-data/kev.json")
+		cfg := mustLoad(t)
+		require.NoError(t, cfg.Validate())
+	})
+
+	t.Run("http from a public host is refused", func(t *testing.T) {
+		t.Setenv("ARCANE_KEV_FEED_URLS", "http://example.com/kev.json")
+		require.EqualError(t, mustLoad(t).Validate(), `ARCANE_KEV_FEED_URLS entry "http://example.com/kev.json" must use https`)
+	})
+
+	t.Run("empty entries are refused", func(t *testing.T) {
+		t.Setenv("ARCANE_KEV_FEED_URLS", ",,")
+		require.EqualError(t, mustLoad(t).Validate(), "ARCANE_KEV_FEED_URLS must contain at least one URL")
+	})
+
+	t.Run("non-http schemes are refused", func(t *testing.T) {
+		t.Setenv("ARCANE_KEV_FEED_URLS", "ftp://files.example.com/kev.json")
+		require.EqualError(t, mustLoad(t).Validate(), `ARCANE_KEV_FEED_URLS entry "ftp://files.example.com/kev.json" must use https`)
+	})
+
+	t.Run("http is allowed in development", func(t *testing.T) {
+		t.Setenv("ARCANE_ENVIRONMENT", "development")
+		t.Setenv("ARCANE_KEV_FEED_URLS", "http://kev-mock:8080/kev.json")
+		require.NoError(t, mustLoad(t).Validate())
+	})
+}
+
 func TestConfig_ListenAddr(t *testing.T) {
 	tests := []struct {
 		name     string
